@@ -54,7 +54,7 @@ const Card: React.FC<TCard> = ({ image: { src }, dateSentence }) => {
 					src={src ? src : `${PATH.ASSETS.IMAGES}${NAMES.IMAGE_DEFAULT}`}
 					alt={'test'}
 					layout="fill"
-					objectFit="contain"
+					objectFit="cover"
 				/>
 			</div>
 

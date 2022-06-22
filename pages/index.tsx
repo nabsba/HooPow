@@ -5,9 +5,6 @@ import { LeftSideFrame, MainFrame, RightSideFrame } from '../components/utils';
 import { THEME } from '../services';
 
 
-const LeftChild: React.FC = () => <h1> Left child</h1>
-const RightChild: React.FC = () => <h1> RightChild</h1>
-
 
 const base: any = css`
 height:100vh;
@@ -24,8 +21,8 @@ const Home: NextPage = () => {
 			<main data-testid="home-page-test" className="flex" css={base}>
 				<ThemeProvider theme={THEME}>
 					<MainFrame>
-						<LeftSideFrame>  <LeftChild /> </LeftSideFrame>
-						<RightSideFrame> <RightChild /> </RightSideFrame>
+						<LeftSideFrame>  </LeftSideFrame>
+						<RightSideFrame> </RightSideFrame>
 					</MainFrame >
 				</ThemeProvider>
 			</main>

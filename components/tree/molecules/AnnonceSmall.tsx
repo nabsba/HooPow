@@ -30,7 +30,6 @@ export const CSSAnnonceOriginal =
     width:${props => props.styleCSS.width}px;
     height:${props => props.styleCSS.height}px;
     border-radius:${props => props.styleCSS.borderRadius}px;
-    margin: auto;
     & .first_span_annonce_small {
         color: white;
         text-transform: capitalize;

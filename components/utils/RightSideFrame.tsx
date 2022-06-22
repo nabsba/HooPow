@@ -11,8 +11,6 @@ type TRightSideFrame = { children: any }
 
 const RightSideFrame: React.FC<TRightSideFrame> = ({ children }) => {
   const { viewPort } = React.useContext(ViewPortChildContext);
-  const theme = useTheme();
-
 
   const base: any = (props: TTheme) => css`
    border-radius: 5px;

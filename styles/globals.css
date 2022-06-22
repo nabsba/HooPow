@@ -42,6 +42,13 @@ a {
   align-items: center;
 }
 
+.flex_column_center_between {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* Size */
 
 .full_size {

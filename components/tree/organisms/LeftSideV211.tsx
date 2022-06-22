@@ -1,0 +1,39 @@
+import { useTheme } from '@emotion/react';
+import * as React from 'react';
+import { MainCard } from '.';
+import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../../services';
+import dataCommon from '../../../services/data/common';
+import { ViewPortChildContext } from '../../utils/contexts/ViewPort';
+import getIcon from '../atoms/icons/Icons';
+import { AnnonceSmall } from '../molecules';
+import { CSSAnnonceOriginal } from '../molecules/AnnonceSmall';
+
+type TLeftV211 = {}
+
+
+const LeftV211: React.FC<TLeftV211> = ({ }) => {
+    const { annonce, mainAnnonce } = dataCommon.fr
+    const { viewPort } = React.useContext(ViewPortChildContext);
+    const theme: any = useTheme();
+
+    return (<div className="flex_column_center_between" style={{ flex: 1, paddingTop: '1rem' }}>
+        <CSSAnnonceOriginal styleCSS={{
+            width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ANNONCE.ORIGINAL(viewPort.width).WIDTH,
+            height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ANNONCE.ORIGINAL(viewPort.width).HEIGHT,
+            borderRadius: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BORDER_RADIUS_15(viewPort.width),
+            background: theme.COLORS.PRIMARY
+        }
+        }>
+            <AnnonceSmall annonce={annonce} />
+        </CSSAnnonceOriginal>
+        <div style={{
+            width: `${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_LARGE(viewPort.width).WIDTH}px`,
+            height: ` ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_LARGE(viewPort.width).HEIGHT}px`
+        }}>
+            {getIcon('Title_howpow_large')}
+        </div>
+        <MainCard mainAnnonce={mainAnnonce} />
+    </div >)
+
+}
+export default LeftV211

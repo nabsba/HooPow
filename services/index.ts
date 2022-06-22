@@ -1,4 +1,4 @@
 import renderWithRouter from './jest/config/test-utils';
-import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from './style/constant';
+import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT, THEME } from './style/constant';
 
-export { renderWithRouter, SIZE_ELEMENTS_ACTUAL_VIEW_PORT };
+export { renderWithRouter, SIZE_ELEMENTS_ACTUAL_VIEW_PORT, THEME, };

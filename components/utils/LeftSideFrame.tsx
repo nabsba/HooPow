@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import * as React from 'react';
 import { useContext } from 'react';
 import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../services';

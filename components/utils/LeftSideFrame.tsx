@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../services';
 import dataCommon from '../../services/data/common';
 import getIcon from '../tree/atoms/icons/Icons';
-import { AnnonceSmall, BurgerPlusHooPowTitle } from '../tree/molecules';
+import { AnnonceSmall, BurgerPlusHooPowTitle, ButtonV1 } from '../tree/molecules';
 import { CSSAnnonceOriginal } from '../tree/molecules/AnnonceSmall';
 import { ViewPortChildContext } from './contexts/ViewPort';
 
@@ -13,7 +13,7 @@ type TLeftSideFrame = {
 }
 
 const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children }) => {
-    const { annonce } = dataCommon.fr
+    const { annonce, mainAnnonce: { button } } = dataCommon.fr
     const { viewPort } = useContext(ViewPortChildContext);
     const base: any = css`
   flex-basis: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.LEFT_SIDE_FRAME(viewPort.width)}px;
@@ -39,6 +39,10 @@ const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children }) => {
         }}>
             {getIcon('Title_howpow_large')}
         </div>
+
+        <ButtonV1 buttonV1={
+            button
+        } />
         {children} </div>)
 
 }

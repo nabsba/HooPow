@@ -49,6 +49,10 @@ const SIZE_XD_DEFAULT = {
             HEIGHT: 124
         }
     },
+    BUTTONV_V1: {
+        WIDTH: 189.19,
+        HEIGHT: 48.45
+    }
 
 };
 
@@ -103,7 +107,14 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
         }
     },
     FONT_SIZE_21: (actualViewPortWidth: number) => 28 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH * actualViewPortWidth,
-    FONT_SIZE_25: (actualViewPortWidth: number) => 33 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH * actualViewPortWidth
+    FONT_SIZE_25: (actualViewPortWidth: number) => 33 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH * actualViewPortWidth,
+    FONT_SIZE_31: (actualViewPortWidth: number) => 41 - 7 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH * actualViewPortWidth,
+    BUTTON_V1: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.BUTTONV_V1.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.BUTTONV_V1.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
 }
 
 

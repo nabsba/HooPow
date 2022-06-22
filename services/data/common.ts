@@ -24,7 +24,7 @@ const dataCommon = {
 				part_2: 'contactez-nous',
 			},
 			button: {
-				title: "s'abonnez",
+				text: "s'abonnez",
 			},
 		},
 		buttons: [

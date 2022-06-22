@@ -52,7 +52,12 @@ const SIZE_XD_DEFAULT = {
     BUTTONV_V1: {
         WIDTH: 189.19,
         HEIGHT: 48.45
+    },
+    MAIN_CHARACTER_SMALL: {
+        WIDTH: 187,
+        HEIGHT: 309
     }
+
 
 };
 
@@ -115,6 +120,13 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
             HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.BUTTONV_V1.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
     },
+    MAIN_CHARACTER_SMALL: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.MAIN_CHARACTER_SMALL.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.MAIN_CHARACTER_SMALL.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+
 }
 
 

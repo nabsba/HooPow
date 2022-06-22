@@ -17,6 +17,7 @@ const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children }) => {
     const { viewPort } = useContext(ViewPortChildContext);
     const base: any = css`
   flex-basis: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.LEFT_SIDE_FRAME(viewPort.width)}px;
+  background-color: white;
 `
     const theme: any = useTheme();
 
@@ -43,6 +44,12 @@ const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children }) => {
         <ButtonV1 buttonV1={
             button
         } />
+        <div style={{
+            width: `${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_CHARACTER_SMALL(viewPort.width).WIDTH}px`,
+            height: ` ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_CHARACTER_SMALL(viewPort.width).HEIGHT}px`
+        }}>
+            {getIcon('Main_character_small')};
+        </div>
         {children} </div>)
 
 }

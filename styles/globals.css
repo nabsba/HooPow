@@ -36,6 +36,12 @@ a {
   flex-direction: column;
 }
 
+.flex_column_center {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
 /* Size */
 
 .full_size {

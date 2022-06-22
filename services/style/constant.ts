@@ -56,6 +56,10 @@ const SIZE_XD_DEFAULT = {
     MAIN_CHARACTER_SMALL: {
         WIDTH: 187,
         HEIGHT: 309
+    },
+    ANNONCE_SUB_ANNONCE: {
+        WIDTH: 160,
+        HEIGHT: 40
     }
 
 
@@ -124,6 +128,12 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.MAIN_CHARACTER_SMALL.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
             HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.MAIN_CHARACTER_SMALL.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    ANNONCE_SUB_ANNONCE: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.ANNONCE_SUB_ANNONCE.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.ANNONCE_SUB_ANNONCE.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
     },
 

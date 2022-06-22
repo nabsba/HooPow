@@ -48,7 +48,14 @@ const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children }) => {
             width: `${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_CHARACTER_SMALL(viewPort.width).WIDTH}px`,
             height: ` ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_CHARACTER_SMALL(viewPort.width).HEIGHT}px`
         }}>
-            {getIcon('Main_character_small')};
+            {getIcon('Main_character_small')}
+        </div>
+        <div className='flex_column_center' style={{
+            width: `${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ANNONCE_SUB_ANNONCE(viewPort.width).WIDTH}px`,
+            height: ` ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ANNONCE_SUB_ANNONCE(viewPort.width).HEIGHT}px`
+        }}>
+            <span> Deja abonnée </span>
+            <span style={{ textTransform: 'uppercase', textDecoration: 'underline' }}> Connectez-vous</span>
         </div>
         {children} </div>)
 

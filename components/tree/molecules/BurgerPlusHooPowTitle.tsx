@@ -6,11 +6,9 @@ import { ViewPortChildContext } from '../../utils/contexts/ViewPort';
 import getIcon from '../atoms/icons/Icons';
 
 
-
-
 const BurgerPlusHooPowTitle: React.FC = () => {
-    const { viewPort } = useContext(ViewPortChildContext);
 
+    const { viewPort } = useContext(ViewPortChildContext);
     const CSStitle: any = css`
 	width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_SMALL(viewPort.width).WIDTH}px;
 	height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_SMALL(viewPort.width).HEIGHT}px;`;

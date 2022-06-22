@@ -67,12 +67,35 @@ const SIZE_XD_DEFAULT = {
     ANNONCE_SUB_ANNONCE: {
         WIDTH: 160,
         HEIGHT: 40
+    },
+    GALLERY_MULTIPLE_ROWS: {
+        WIDTH: 1152,
+        HEIGHT: 1038,
+    },
+    CARD: {
+        WIDTH: 258,
+        HEIGHT: 281,
+        IMAGE: {
+            WIDTH: 258,
+            HEIGHT: 258
+        }
     }
-
-
 };
 
 const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
+    CARD: (actualViewPortWidth: number) => {
+        console.log(actualViewPortWidth, SIZE_XD_DEFAULT.CARD.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    CARD_IMAGE: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD.IMAGE.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD.IMAGE.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
     RIGHT_SIDE_FRAME: (actualViewPortWidth: number) => (SIZE_XD_DEFAULT.RIGHT_SIDE_FRAME_WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     LEFT_SIDE_FRAME: (actualViewPortWidth: number) => (SIZE_XD_DEFAULT.LEFT_SIDE_FRAME_WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     MAIN_SIDE_HEIGHT: (actualViewPortWidth: number) => 0.569633192 * actualViewPortWidth,
@@ -126,6 +149,7 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
         }
     },
     FONT_SIZE_21: (actualViewPortWidth: number) => (21 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
+    FONT_SIZE_15: (actualViewPortWidth: number) => (15 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     FONT_SIZE_17: (actualViewPortWidth: number) => (17 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     FONT_SIZE_25: (actualViewPortWidth: number) => (25 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     FONT_SIZE_31: (actualViewPortWidth: number) => (31 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
@@ -152,6 +176,12 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.MAIN_ANNONCE.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
             HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.MAIN_ANNONCE.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    GALLERY_MULTIPLE_ROWS: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.GALLERY_MULTIPLE_ROWS.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.GALLERY_MULTIPLE_ROWS.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
     }
 

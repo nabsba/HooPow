@@ -21,6 +21,14 @@ const SIZE_XD_DEFAULT = {
         WIDTH: 67,
         HEIGHT: 69
     },
+    TITLE_HOO_POW_SMALL: {
+        WIDTH: 208.25,
+        HEIGHT: 53.51,
+    },
+    BURGER_PLUS_TITLE_HOO_POW: {
+        WIDTH: 293.42,
+        HEIGHT: 69
+    },
     BORDER_RADIUS_15: 15,
     SPAN_BURGER_WRAPPER: {
         HEIGHT: 25.54,
@@ -42,7 +50,7 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
             HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.BURGER.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
     },
-    BORDER_RADIUS_15: (actualViewPortWidth: number) => SIZE_XD_DEFAULT.BORDER_RADIUS_15 * (SIZE_XD_DEFAULT.BORDER_RADIUS_15 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+    BORDER_RADIUS_15: (actualViewPortWidth: number) => actualViewPortWidth * (SIZE_XD_DEFAULT.BORDER_RADIUS_15 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
     SPAN_BURGER_WRAPPER: (actualViewPortWidth: number) => {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.SPAN_BURGER_WRAPPER.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
@@ -55,8 +63,18 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
             HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.SPAN_BURGER.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
     },
-
-
+    TITLE_HOO_POW_SMALL: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.TITLE_HOO_POW_SMALL.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.TITLE_HOO_POW_SMALL.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    BURGER_PLUS_TITLE_HOO_POW: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.BURGER_PLUS_TITLE_HOO_POW.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.BURGER_PLUS_TITLE_HOO_POW.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
 }
 
 

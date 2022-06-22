@@ -20,7 +20,7 @@ const BurgerPlusHooPowTitle: React.FC = () => {
 	height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BURGER_PLUS_TITLE_HOO_POW(viewPort.width).HEIGHT}px;`;
 
     return (<div className="flex_row_center flex_row_center_between margin_auto" css={CSSwrapper}>
-        {getIcon('Burger')}
+        {getIcon('Burger', false)}
         <div css={CSStitle}>
             {getIcon('Title_howpow_small')}
         </div>

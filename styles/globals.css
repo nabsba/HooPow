@@ -51,3 +51,9 @@ a {
 .margin_auto {
   margin: auto;
 }
+
+/* Typography */
+
+.police_bilo {
+  font-family: bilo, sans-serif
+}

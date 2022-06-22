@@ -1,9 +1,12 @@
-import { css } from '@emotion/react';
+import { css, useTheme } from '@emotion/react';
 import * as React from 'react';
 import { useContext } from 'react';
 import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../services';
+import dataCommon from '../../services/data/common';
+import { TTheme } from '../../services/style/type';
 import getIcon from '../tree/atoms/icons/Icons';
-import { BurgerPlusHooPowTitle } from '../tree/molecules';
+import { AnnonceSmall, BurgerPlusHooPowTitle } from '../tree/molecules';
+import { CSSAnnonceOriginal } from '../tree/molecules/AnnonceSmall';
 import { ViewPortChildContext } from './contexts/ViewPort';
 
 type TLeftSideFrame = {
@@ -11,14 +14,27 @@ type TLeftSideFrame = {
 }
 
 const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children }) => {
+    const { annonce } = dataCommon.fr
     const { viewPort } = useContext(ViewPortChildContext);
     const base: any = css`
   flex-basis: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.LEFT_SIDE_FRAME(viewPort.width)}px;
 `
+    const theme: any = useTheme();
+
     return (<div
         css={base}
     >
         <BurgerPlusHooPowTitle />
+        <CSSAnnonceOriginal styleCSS={{
+            width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ANNONCE.ORIGINAL(viewPort.width).WIDTH,
+            height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ANNONCE.ORIGINAL(viewPort.width).HEIGHT,
+            borderRadius: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BORDER_RADIUS_15(viewPort.width),
+            background: theme.COLORS.PRIMARY
+        }
+        }>
+            <AnnonceSmall annonce={annonce} />
+        </CSSAnnonceOriginal>
+
         {children} </div>)
 
 }

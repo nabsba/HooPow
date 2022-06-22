@@ -6,6 +6,7 @@ import dataCommon from '../../services/data/common';
 import getIcon from '../tree/atoms/icons/Icons';
 import { AnnonceSmall, BurgerPlusHooPowTitle, ButtonV1 } from '../tree/molecules';
 import { CSSAnnonceOriginal } from '../tree/molecules/AnnonceSmall';
+import { MainCard } from '../tree/organisms';
 import { ViewPortChildContext } from './contexts/ViewPort';
 
 type TLeftSideFrame = {
@@ -13,7 +14,7 @@ type TLeftSideFrame = {
 }
 
 const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children }) => {
-    const { annonce, mainAnnonce: { button } } = dataCommon.fr
+    const { annonce, mainAnnonce } = dataCommon.fr
     const { viewPort } = useContext(ViewPortChildContext);
     const base: any = css`
   flex-basis: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.LEFT_SIDE_FRAME(viewPort.width)}px;
@@ -40,23 +41,7 @@ const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children }) => {
         }}>
             {getIcon('Title_howpow_large')}
         </div>
-
-        <ButtonV1 buttonV1={
-            button
-        } />
-        <div style={{
-            width: `${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_CHARACTER_SMALL(viewPort.width).WIDTH}px`,
-            height: ` ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_CHARACTER_SMALL(viewPort.width).HEIGHT}px`
-        }}>
-            {getIcon('Main_character_small')}
-        </div>
-        <div className='flex_column_center' style={{
-            width: `${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ANNONCE_SUB_ANNONCE(viewPort.width).WIDTH}px`,
-            height: ` ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ANNONCE_SUB_ANNONCE(viewPort.width).HEIGHT}px`
-        }}>
-            <span> Deja abonnée </span>
-            <span style={{ textTransform: 'uppercase', textDecoration: 'underline' }}> Connectez-vous</span>
-        </div>
+        <MainCard mainAnnonce={mainAnnonce} />
         {children} </div>)
 
 }

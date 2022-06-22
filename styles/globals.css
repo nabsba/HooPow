@@ -39,7 +39,7 @@ a {
 .flex_column_center {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
 }
 
 /* Size */
@@ -62,4 +62,17 @@ a {
 
 .police_bilo {
   font-family: bilo, sans-serif
+}
+
+.police_bilo {
+  font-family: bilo, sans-serif
+}
+
+.police_baloo {
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-weight: normal;
+}
+
+.police_inter {
+  font-family: 'Inter', sans-serif;
 }

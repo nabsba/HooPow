@@ -20,7 +20,7 @@ const dataCommon = {
 				part_2: 'la production en vous abonnant !',
 			},
 			invitation: {
-				part_1: 'déjà abooné ?',
+				part_1: 'déjà abonné ?',
 				part_2: 'contactez-nous',
 			},
 			button: {

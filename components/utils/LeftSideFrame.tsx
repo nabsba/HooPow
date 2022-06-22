@@ -3,7 +3,6 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../services';
 import dataCommon from '../../services/data/common';
-import { TTheme } from '../../services/style/type';
 import getIcon from '../tree/atoms/icons/Icons';
 import { AnnonceSmall, BurgerPlusHooPowTitle } from '../tree/molecules';
 import { CSSAnnonceOriginal } from '../tree/molecules/AnnonceSmall';
@@ -34,7 +33,12 @@ const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children }) => {
         }>
             <AnnonceSmall annonce={annonce} />
         </CSSAnnonceOriginal>
-
+        <div style={{
+            width: `${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_LARGE(viewPort.width).WIDTH}px`,
+            height: ` ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_LARGE(viewPort.width).HEIGHT}px`
+        }}>
+            {getIcon('Title_howpow_large')}
+        </div>
         {children} </div>)
 
 }

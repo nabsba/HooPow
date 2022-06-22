@@ -25,6 +25,10 @@ const SIZE_XD_DEFAULT = {
         WIDTH: 208.25,
         HEIGHT: 53.51,
     },
+    TITLE_HOO_POW_LARGE: {
+        WIDTH: 325.53,
+        HEIGHT: 146.11
+    },
     BURGER_PLUS_TITLE_HOO_POW: {
         WIDTH: 293.42,
         HEIGHT: 69
@@ -45,6 +49,7 @@ const SIZE_XD_DEFAULT = {
             HEIGHT: 124
         }
     },
+
 };
 
 const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
@@ -89,6 +94,12 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
                 WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.ANNONCE.ORIGINAL.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
                 HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.ANNONCE.ORIGINAL.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
             }
+        }
+    },
+    TITLE_HOO_POW_LARGE: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.TITLE_HOO_POW_LARGE.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.TITLE_HOO_POW_LARGE.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
     },
     FONT_SIZE_21: (actualViewPortWidth: number) => 28 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH * actualViewPortWidth,

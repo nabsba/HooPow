@@ -1,7 +1,8 @@
 import { ReactElement } from 'react';
+import Burger from './Burger';
 
 // https://react-icons.github.io/react-icons/icons?name=fa
-const getIcon = (indice: string): ReactElement => {
+const getIcon = (indice: string, props?: any): ReactElement => {
     switch (indice) {
         case 'Title_howpow_small':
             return (
@@ -392,7 +393,9 @@ const getIcon = (indice: string): ReactElement => {
                 </svg>
             );
         }
-
+        case 'Burger': {
+            return <Burger state={props} />
+        }
         default:
             return <span> {indice}</span>;
     }

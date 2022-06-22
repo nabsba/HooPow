@@ -15,8 +15,33 @@ a {
   box-sizing: border-box;
 }
 
-/* */
+/* Display */
 .flex {
   display: flex;
-  height: 100vh;
+}
+
+.flex_row_center {
+  display: flex;
+  align-items: center;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Size */
+
+.full_size {
+  height: 100%;
+  width: 100%;
+}
+
+.max_content_size {
+  width: max-content;
+}
+
+/* Margin */
+.margin_auto {
+  margin: auto;
 }

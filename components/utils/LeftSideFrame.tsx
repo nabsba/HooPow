@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import * as React from 'react';
 import { useContext } from 'react';
 import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../services';
+import getIcon from '../tree/atoms/icons/Icons';
 import { ViewPortChildContext } from './contexts/ViewPort';
 
 type TLeftSideFrame = {
@@ -15,7 +16,9 @@ const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children }) => {
 `
     return (<div
         css={base}
-    > {children} </div>)
+    >
+        {getIcon('Burger', false)}
+        {children} </div>)
 
 }
 export default LeftSideFrame

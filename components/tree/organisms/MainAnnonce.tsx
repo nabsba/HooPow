@@ -8,21 +8,20 @@ import getIcon from '../atoms/icons/Icons';
 import { ButtonV1 } from '../molecules';
 import { TButtonV1 } from '../molecules/buttons/ButtonV1';
 
-type TMainAnnonce = {
-    mainAnnonce: {
-        button: TButtonV1;
-        invitation: {
-            part_1: string,
-            part_2: string,
-        }, title: {
-            part_1: string,
-            part_2: string
-        }
+export type TMainAnnonce = {
+    button: TButtonV1;
+    invitation: {
+        part_1: string,
+        part_2: string,
+    }, title: {
+        part_1: string,
+        part_2: string
     }
+
 }
 
 
-const MainAnnonce: React.FC<TMainAnnonce> = ({ mainAnnonce: { button, invitation, title } }) => {
+const MainAnnonce: React.FC<TMainAnnonce> = ({ button, invitation, title }) => {
     const { viewPort } = useContext(ViewPortChildContext);
     const base: any = (props: TTheme) => css` 
     background-color: ${props.COLORS.PRIMARY};

@@ -79,12 +79,15 @@ const SIZE_XD_DEFAULT = {
             WIDTH: 258,
             HEIGHT: 258
         }
+    },
+    MAIN_CHARACTER: {
+        WIDTH: 616.47,
+        HEIGHT: 1335.58
     }
 };
 
 const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
     CARD: (actualViewPortWidth: number) => {
-        console.log(actualViewPortWidth, SIZE_XD_DEFAULT.CARD.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
             HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
@@ -182,6 +185,12 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.GALLERY_MULTIPLE_ROWS.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
             HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.GALLERY_MULTIPLE_ROWS.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    MAIN_CHARACTER: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.MAIN_CHARACTER.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.MAIN_CHARACTER.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
     }
 

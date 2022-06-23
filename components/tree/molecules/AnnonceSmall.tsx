@@ -3,11 +3,9 @@ import styled from '@emotion/styled'
 import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../../services';
 import { ViewPortChildContext } from '../../utils/contexts/ViewPort';
 
-type TAnnonceSmall = {
-    annonce: {
-        text_first: string;
-        text_second: string;
-    }
+export type TAnnonceSmall = {
+    text_first: string;
+    text_second: string;
 }
 
 {/*
@@ -44,7 +42,7 @@ export const CSSAnnonceOriginal =
 
 
 
-const AnnonceSmall: React.FC<TAnnonceSmall> = ({ annonce: { text_first, text_second } }) => {
+const AnnonceSmall: React.FC<TAnnonceSmall> = ({ text_first, text_second }) => {
     const { viewPort } = React.useContext(ViewPortChildContext);
     return (<>
         <span className="police_bilo first_span_annonce_small" style={{ fontSize: `${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_21(viewPort.width)}px` }}>

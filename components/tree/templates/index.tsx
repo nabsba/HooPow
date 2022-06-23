@@ -1,1 +1,3 @@
-export {};
+import Andromeda from "./Andromeda";
+
+export { Andromeda };

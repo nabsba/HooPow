@@ -4,9 +4,10 @@ import Head from 'next/head';
 import { useContext } from 'react';
 import { Card } from '../components/tree/molecules';
 import { CSSCardOriginal } from '../components/tree/molecules/Card';
-import { LeftSideFrame, MainFrame, RightSideFrame } from '../components/utils';
-import { ViewPortChildContext } from '../components/utils/contexts/ViewPort';
-import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT, THEME } from '../services';
+import Andromeda from '../components/tree/templates/Andromeda';
+import { MainFrame } from '../components/utils';
+import { THEME } from '../services';
+
 
 
 
@@ -26,10 +27,7 @@ const Home: NextPage = () => {
 			<main data-testid="home-page-test" className="flex" css={base}>
 				<ThemeProvider theme={THEME}>
 					<MainFrame>
-						<LeftSideFrame>  </LeftSideFrame>
-						<RightSideFrame>
-
-						</RightSideFrame>
+						<Andromeda />
 					</MainFrame >
 				</ThemeProvider>
 			</main>

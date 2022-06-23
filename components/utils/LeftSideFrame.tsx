@@ -3,7 +3,6 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../services';
 import { BurgerPlusHooPowTitle } from '../tree/molecules';
-import LeftSideV211 from '../tree/organisms/LeftSideV211';
 import { ViewPortChildContext } from './contexts/ViewPort';
 
 type TLeftSideFrame = {
@@ -19,7 +18,6 @@ const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children }) => {
         css={base}
     >
         <BurgerPlusHooPowTitle />
-        <LeftSideV211 />
         {children} </div>)
 
 }

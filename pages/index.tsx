@@ -40,7 +40,7 @@ const Home: NextPage = () => {
 								pendingNewList
 							}}
 						>
-							{comicsInformations.comicSelected.id || true ? <Tadpole /> : <Andromeda />}
+							{comicsInformations.comicSelected.id ? <Tadpole /> : <Andromeda />}
 						</ComicsChildContext.Provider>
 					</MainFrame >
 				</ThemeProvider>

@@ -23,13 +23,14 @@ const createPropsFromData = (type: string, data: any) => {
 			return cards;
 		}
 		case 'card': {
+
 			const card = {
 				image: {
-					src: PATHS_SERVER.IMAGES('images/MSHOW_01_ADDITION_01.jpg'),
+					src: PATHS_SERVER.IMAGES(data.imageHomepage),
 				},
-				dateSentence: { date: 'hi', sentence: 'lovely' },
-				id: data.id,
-			};
+				dateSentence: { date: '', sentence: data.name },
+				informationCard: data,
+			}
 			return card;
 		}
 		case 'galleryPics': {

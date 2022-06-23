@@ -32,7 +32,6 @@ const Andromeda: React.FC<Props> = () => {
     position: fixed;
     top: -3%;
     right: -20%;`;
-
     return (
         <>
             <LeftSideFrame>

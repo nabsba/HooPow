@@ -9,4 +9,5 @@ const NAMES = {
     IMAGE_DEFAULT: 'howPowDefaultImg.png',
 };
 
-export { PATH, NAMES }
+var DAYS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+export { PATH, NAMES, DAYS }

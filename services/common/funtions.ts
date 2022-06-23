@@ -1,3 +1,5 @@
+import { DAYS } from "../data/constant";
+
 const logMessage = (message: string): void => {
 	if (true) console.log(message);
 };
@@ -10,4 +12,9 @@ const calculateProportion = (number1: number, number2: number) => {
 
 }
 
-export { logErrorAsyncMessage, logMessage, calculateProportion };
+const returnDate = (date: string) => {
+	var now = new Date(date);
+	return `${DAYS[now.getDay()]} ${now.getDate()}`
+}
+
+export { logErrorAsyncMessage, logMessage, calculateProportion, returnDate };

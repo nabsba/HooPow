@@ -23,7 +23,7 @@ export type TImage = {
 export type TCard = {
 	image: { src?: string };
 	dateSentence: TDateSentence;
-	id: number | string;
+	informationCard: any
 
 };
 
@@ -47,6 +47,7 @@ opacity: .4;
   `;
 
 const Card: React.FC<TCard> = ({ image: { src }, dateSentence }) => {
+
 	return (
 		<>
 			<div className="img_card">

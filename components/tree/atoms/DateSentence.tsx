@@ -27,7 +27,7 @@ justify-content: center;
 const DateSentence: React.FC<TDateSentence> = ({ date, sentence }) => {
 	const { viewPort } = React.useContext(ViewPortChildContext);
 	const CSStext = css`
-     font-size:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_25(viewPort.width)}px
+     font-size:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_15(viewPort.width)}px
 `;
 
 	return (

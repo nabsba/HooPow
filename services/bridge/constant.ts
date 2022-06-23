@@ -1,4 +1,5 @@
-import { TLanguages } from '../common/type';
+import { TLanguages } from "../data/type";
+
 
 const HTTP_STATUS_CODE = {
 	BAD_REQUEST: 400,
@@ -23,15 +24,15 @@ const NOTIFICATION_GENERAL_SERVER: {
 
 const PATHS_SERVER = {
 	ALL_COMICS:
-		process.env.NEXT_PUBLIC_DEVELOPMENT == 'true'
+		process.env.NEXT_PUBLIC_DEVELOPMENT === 'true'
 			? '/api/allComics'
 			: 'https://api.jsonbin.io/b/60d15d6c8ea8ec25bd12c083',
 	DETAILS_COMIC: (id: string) =>
-		process.env.NEXT_PUBLIC_DEVELOPMENT == 'true'
+		process.env.NEXT_PUBLIC_DEVELOPMENT === 'true'
 			? '/api/detailComic'
 			: `https://api.jsonbin.io/b/${id}`,
 	IMAGES: (id: string) =>
-		process.env.NEXT_PUBLIC_DEVELOPMENT == 'true'
+		process.env.NEXT_PUBLIC_DEVELOPMENT === 'true'
 			? '/api/image'
 			: `https://d2hkgoif6etp77.cloudfront.net/${id}`,
 };

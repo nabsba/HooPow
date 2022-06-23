@@ -17,6 +17,7 @@ class MyDocument extends Document {
 					/>
 					{/* Police bilo  */}
 					<link rel="stylesheet" href="https://use.typekit.net/rua6gmq.css" />
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.0/moment.min.js"></script>
 
 				</Head>
 				<body>

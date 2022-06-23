@@ -6,7 +6,8 @@ import dataCommon from '../../../../services/data/common';
 import createPropsFromData from '../../../factory/createProps';
 import { LeftSideFrame, RightSideFrame } from '../../../utils';
 import FullScreenParentContext, { FullScreenChildContext } from '../../../utils/contexts/FullScreen';
-import { TadpoleLeftSideChildV2 } from '../../organisms';
+import { ViewPortChildContext } from '../../../utils/contexts/ViewPort';
+import { SliderComponent, TadpoleLeftSideChildV2 } from '../../organisms';
 
 
 
@@ -14,6 +15,7 @@ import { TadpoleLeftSideChildV2 } from '../../organisms';
 
 const Tadpole: React.FC = ({ }) => {
     const { handleStateFullScreen, stateFullScreen } = FullScreenParentContext()
+    const { viewPort } = React.useContext(ViewPortChildContext);
     return (<>
         <FullScreenChildContext.Provider value={{
             handleStateFullScreen,
@@ -22,7 +24,27 @@ const Tadpole: React.FC = ({ }) => {
             <LeftSideFrame>
                 <TadpoleLeftSideChildV2 />
             </LeftSideFrame>
-            <RightSideFrame> <h1>  hello tadpole</h1></RightSideFrame>
+            <RightSideFrame>
+                <SliderComponent Components={[<div>
+                    <h3>1</h3>
+                </div>,
+                <div>
+                    <h3>2</h3>
+                </div>,
+                <div>
+                    <h3>3</h3>
+                </div>,
+                <div>
+                    <h3>4</h3>
+                </div>,
+                <div>
+                    <h3>5</h3>
+                </div>,
+                <div>
+                    <h3>6</h3>
+                </div>]} wiewPortWidth={viewPort.width} />
+
+            </RightSideFrame>
         </FullScreenChildContext.Provider>
     </>)
 

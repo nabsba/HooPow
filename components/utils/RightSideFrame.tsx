@@ -15,7 +15,10 @@ const RightSideFrame: React.FC<TRightSideFrame> = ({ children }) => {
   const base: any = (props: TTheme) => css`
    border-radius: 5px;
    flex-basis: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.RIGHT_SIDE_FRAME(viewPort.width)}px;
-   background-color: ${props.COLORS.SECONDARY};`
+   background-color: ${props.COLORS.SECONDARY};
+   overflow: hidden;
+   
+   `
   return (<div
     css={base} >
     {children} </div>)

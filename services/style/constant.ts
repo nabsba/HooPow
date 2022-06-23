@@ -100,9 +100,20 @@ const SIZE_XD_DEFAULT = {
         WIDTH: 36.48,
         HEIGHT: 36.48,
     },
+    ICON_ARROW: {
+        WIDTH: 86,
+        HEIGHT: 86
+
+    }
 };
 
 const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
+    ICON_ARROW: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_ARROW.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_ARROW.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
     CARD: (actualViewPortWidth: number) => {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),

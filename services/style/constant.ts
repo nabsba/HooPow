@@ -83,7 +83,23 @@ const SIZE_XD_DEFAULT = {
     MAIN_CHARACTER: {
         WIDTH: 616.47,
         HEIGHT: 1335.58
-    }
+    },
+    SHARE_ICON_TEXT: {
+        WIDTH: 104,
+        HEIGHT: 101.06,
+    },
+    SHARE_ICON: {
+        WIDTH: 64.07,
+        HEIGHT: 64.06
+    },
+    BUTTON_V2: {
+        WIDTH: 281,
+        HEIGHT: 62
+    },
+    BUTTON_V2_ICON: {
+        WIDTH: 36.48,
+        HEIGHT: 36.48,
+    },
 };
 
 const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
@@ -91,6 +107,30 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
             HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    BUTTON_V2: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.BUTTON_V2.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.BUTTON_V2.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    BUTTON_V2_ICON: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.BUTTON_V2_ICON.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.BUTTON_V2_ICON.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    SHARE_ICON_TEXT: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.SHARE_ICON_TEXT.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.SHARE_ICON_TEXT.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    SHARE_ICON: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.SHARE_ICON.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.SHARE_ICON.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
     },
     CARD_IMAGE: (actualViewPortWidth: number) => {
@@ -108,10 +148,11 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
             HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.BURGER.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
     },
-    BORDER_RADIUS_5: (actualViewPortWidth: number) => actualViewPortWidth * (SIZE_XD_DEFAULT.BORDER_RADIUS_5 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
-    BORDER_RADIUS_15: (actualViewPortWidth: number) => actualViewPortWidth * (SIZE_XD_DEFAULT.BORDER_RADIUS_15 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
-    BORDER_RADIUS_14: (actualViewPortWidth: number) => actualViewPortWidth * (SIZE_XD_DEFAULT.BORDER_RADIUS_14 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
-    BORDER_RADIUS_20: (actualViewPortWidth: number) => actualViewPortWidth * (SIZE_XD_DEFAULT.BORDER_RADIUS_20 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+    BORDER_RADIUS_5: (actualViewPortWidth: number) => (5 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
+    BORDER_RADIUS_15: (actualViewPortWidth: number) => (15 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
+    BORDER_RADIUS_14: (actualViewPortWidth: number) => (14 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
+    BORDER_RADIUS_20: (actualViewPortWidth: number) => (20 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
+    BORDER_RADIUS_42: (actualViewPortWidth: number) => (42 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
 
     SPAN_BURGER_WRAPPER: (actualViewPortWidth: number) => {
         return {
@@ -155,6 +196,8 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
     FONT_SIZE_15: (actualViewPortWidth: number) => (15 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     FONT_SIZE_17: (actualViewPortWidth: number) => (17 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     FONT_SIZE_25: (actualViewPortWidth: number) => (25 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
+    FONT_SIZE_20: (actualViewPortWidth: number) => (20 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
+    FONT_SIZE_24: (actualViewPortWidth: number) => (24 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     FONT_SIZE_31: (actualViewPortWidth: number) => (31 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     FONT_SIZE_34: (actualViewPortWidth: number) => (34 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     BUTTON_V1: (actualViewPortWidth: number) => {

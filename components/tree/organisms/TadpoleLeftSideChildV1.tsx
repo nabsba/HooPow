@@ -15,6 +15,8 @@ const TadpoleLeftSideChildV1: React.FC<TTadpoleLeftSideChildV1> = ({ card, viewP
         </CSSCardOriginal>
         <div style={{ height: '10px' }} />
         <MainAnnonce {...mainAnnonce} />
+
+
     </div>
 }
 export default TadpoleLeftSideChildV1

@@ -1,3 +1,4 @@
 import Andromeda from "./andromeda/Andromeda";
+import Tadpole from "./tadpole/Tadpole";
 
-export { Andromeda };
+export { Andromeda, Tadpole };

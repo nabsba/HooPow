@@ -1,6 +1,7 @@
 import { css, ThemeProvider } from '@emotion/react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { Tadpole } from '../components/tree/templates';
 import Andromeda from '../components/tree/templates/andromeda/Andromeda';
 import { MainFrame } from '../components/utils';
 import ComicsParentContext, { ComicsChildContext } from '../components/utils/contexts/Comics';
@@ -39,7 +40,7 @@ const Home: NextPage = () => {
 								pendingNewList
 							}}
 						>
-							<Andromeda />
+							{comicsInformations.comicSelected.id || true ? <Tadpole /> : <Andromeda />}
 						</ComicsChildContext.Provider>
 					</MainFrame >
 				</ThemeProvider>

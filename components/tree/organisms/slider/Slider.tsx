@@ -15,16 +15,20 @@ type TSlider = {
 const SliderComponent: React.FC<TSlider> = ({ Components, wiewPortWidth }) => {
      const { sliderRef, settings } = Util();
      const base = css`
-& .slider_arrow_prev {
+     height: 100%;
+     margin: auto;
+ .slider_arrow_prev {
      width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).WIDTH}px;
      height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).HEIGHT}px;
      & svg {
      cursor: pointer;
      width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).WIDTH}px;
      height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).HEIGHT}px;
+     position:relative;
+     left: -70%;
 }
 }
- & .slider_arrow_next {
+  .slider_arrow_next {
      width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).WIDTH}px;
      height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).HEIGHT}px;
          & svg {
@@ -32,11 +36,28 @@ const SliderComponent: React.FC<TSlider> = ({ Components, wiewPortWidth }) => {
                  cursor: pointer;
                  width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).WIDTH}px;
                  height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).HEIGHT}px;
+                 position:relative;
+                 right: -70%;
  }
 }
- & .slides_wrapper {
+  .slides_wrapper {
      min-height: 0px; min-width: 0px;
-     &  .slick-prev {
+     width: 100%;
+    .slick-dots li button:before {
+          color: #808080;
+     }
+     .slick-dots li button:before {
+          font-size: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.DOT_SLIDER(wiewPortWidth).WIDTH}px;
+     }
+     
+      .slick-dots li.slick-active button:before {
+          color: white;
+          opacity: 1;
+     }
+       .slick-prev {
+          display: none !important;
+     }
+     .slick-next {
           display: none !important;
      }
  }

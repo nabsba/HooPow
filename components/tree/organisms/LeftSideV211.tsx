@@ -21,13 +21,9 @@ const LeftV211: React.FC<TLeftV211> = ({ annonce }) => {
     const theme: any = useTheme();
 
     return (<div className="flex_column_center_between" style={{ flex: 1, paddingTop: '1rem' }}>
-        <CSSAnnonceOriginal styleCSS={{
-            width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ANNONCE.ORIGINAL(viewPort.width).WIDTH,
-            height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ANNONCE.ORIGINAL(viewPort.width).HEIGHT,
-            borderRadius: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BORDER_RADIUS_15(viewPort.width),
-            background: theme.COLORS.PRIMARY
-        }
-        }>
+        <CSSAnnonceOriginal
+            viewPortWidth={viewPort.width}
+            background={theme.COLORS.PRIMARY}>
             <AnnonceSmall {...annonce} />
         </CSSAnnonceOriginal>
         <div style={{
@@ -37,6 +33,7 @@ const LeftV211: React.FC<TLeftV211> = ({ annonce }) => {
             {getIcon('Title_howpow_large')}
         </div>
         <MainAnnonce {...mainAnnonce} />
+
     </div >)
 
 }

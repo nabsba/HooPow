@@ -50,6 +50,10 @@ const SIZE_XD_DEFAULT = {
         ORIGINAL: {
             WIDTH: 338,
             HEIGHT: 124
+        },
+        VARIANT: {
+            WIDTH: 596,
+            HEIGHT: 67
         }
     },
     BUTTONV_V1: {
@@ -104,10 +108,31 @@ const SIZE_XD_DEFAULT = {
         WIDTH: 86,
         HEIGHT: 86
 
-    }
+    },
+    DOT_SLIDER: {
+        WIDTH: 21,
+        HEIGHT: 21
+    },
+    SLIDER_IMAGE: {
+        WIDTH: 790,
+        HEIGHT: 790
+    },
+
 };
 
 const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
+    SLIDER_IMAGE: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.SLIDER_IMAGE.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.SLIDER_IMAGE.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    DOT_SLIDER: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.DOT_SLIDER.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.DOT_SLIDER.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
     ICON_ARROW: (actualViewPortWidth: number) => {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_ARROW.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
@@ -195,7 +220,13 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
                 WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.ANNONCE.ORIGINAL.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
                 HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.ANNONCE.ORIGINAL.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
             }
-        }
+        },
+        VARIANT: (actualViewPortWidth: number) => {
+            return {
+                WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.ANNONCE.VARIANT.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+                HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.ANNONCE.VARIANT.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+            }
+        },
     },
     TITLE_HOO_POW_LARGE: (actualViewPortWidth: number) => {
         return {
@@ -246,7 +277,8 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.MAIN_CHARACTER.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
             HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.MAIN_CHARACTER.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
-    }
+    },
+
 
 }
 

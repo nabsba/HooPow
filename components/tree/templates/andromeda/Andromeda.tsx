@@ -17,7 +17,7 @@ const Andromeda: React.FC<Props> = () => {
     const { mainAnnonce, annonce, iconTitle, userMenu } = dataCommon.fr;
     const { viewPort } = React.useContext(ViewPortChildContext);
     const { comicsInformations,
-        getNewListComics, pendingFirstList, pendingNewList, handleComicsInformations } = useContext(ComicsChildContext);
+        getNewListComics, pendingFirstList, pendingNewList, handleComicsInformations, errorServer } = useContext(ComicsChildContext);
     const { componentsCards, componentsCardsOnLoad } = ComponentsCards(viewPort.width, handleComicsInformations, comicsInformations);
     const { scrollRef } = RetrieveComicsOnScrolling(comicsInformations, getNewListComics);
     const CSSstyleMainComponent = css`
@@ -43,10 +43,11 @@ const Andromeda: React.FC<Props> = () => {
             </LeftSideFrame>
             <RightSideFrame>
                 <div className="andromeda_main_component" ref={scrollRef} css={CSSstyleMainComponent}>
-                    <CSSGaleryRows viewPortWidth={viewPort.width}>
+                    {errorServer ? <h1> This is a custom component during an error</h1> : <CSSGaleryRows viewPortWidth={viewPort.width}>
                         <Gallery componentsHTML={pendingFirstList ? componentsCardsOnLoad : componentsCards} />
                         {pendingNewList && <Gallery componentsHTML={componentsCardsOnLoad} />}
-                    </CSSGaleryRows>
+                    </CSSGaleryRows>}
+
                 </div>
                 <div className={'position_character'} css={CSSstyleMainCharacter}>
                     {getIcon('Main_character')}

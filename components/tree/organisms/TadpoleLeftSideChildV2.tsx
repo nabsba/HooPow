@@ -27,8 +27,9 @@ const TadpoleLeftSideChildV2: React.FC = () => {
     & .sub_text_share_icon {
         font-size: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_20(viewPortWidth)}px;
         color:#C3C3C3;
-        text-transform: capitalize;
+        text-transform: uppercase;
         text-align: center;
+        padding-top: 10%;
     };
 
     `
@@ -42,7 +43,7 @@ const TadpoleLeftSideChildV2: React.FC = () => {
             <div className="svg_share">
                 {getIcon('Share')}
             </div>
-            <span className={'police_avenir sub_text_share_icon'}> hello</span>
+            <span className={'police_avenir sub_text_share_icon'}>PARTAGER</span>
         </div>
         <div>
             <div onClick={() => handleStateFullScreen({ doWeDiplayFullScreen: true })}>

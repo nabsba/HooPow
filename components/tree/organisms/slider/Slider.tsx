@@ -14,7 +14,6 @@ const SliderComponent: React.FC<TSlider> = ({ Components, wiewPortWidth }) => {
      const { sliderRef, settings } = Util();
      const { contextSlider } = React.useContext(SlideChildContext)
      const base = css`
-     height: 100%;
      margin: auto;
     .slider_arrow_prev {
      opacity: ${contextSlider.oldSlide === 0 ? 0 : 1};
@@ -42,8 +41,8 @@ const SliderComponent: React.FC<TSlider> = ({ Components, wiewPortWidth }) => {
  }
 }
   .slides_wrapper {
-     min-height: 0px; min-width: 0px;
-     width: 100%;
+     min-height: 0px; 
+     min-width: 0px;
     .slick-dots li button:before {
           color: #808080;
      }

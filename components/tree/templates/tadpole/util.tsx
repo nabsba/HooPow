@@ -9,7 +9,7 @@ import { TComicsInformations } from "../../../utils/contexts/Comics";
 
 const ComponentsSlider = (viewPortWidth: number) => {
     const componentsSliders = createPropsFromData('slidersComicImages', '');
-    const componentsSlide = componentsSliders.map((comp: any) => <div className="check_here" css={css`
+    const componentsSlide = componentsSliders.map((comp: any) => <div className="card_slide_size" css={css`
         position: relative;
         width:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).WIDTH}px !important;
         height:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).HEIGHT}px;

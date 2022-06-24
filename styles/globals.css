@@ -25,6 +25,13 @@ a {
   align-items: center;
 }
 
+.flex_row_full_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ;
+}
+
 .flex_row_center_between {
   display: flex;
   align-items: center;

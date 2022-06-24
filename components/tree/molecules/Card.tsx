@@ -5,6 +5,7 @@ import { DateSentence } from '../atoms';
 import { PATH, SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../../services';
 import { NAMES } from '../../../services/data/constant';
 import { TDateSentence } from '../atoms/DateSentence';
+import { TComic } from '../../../services/data/type';
 declare type ImgElementStyle = NonNullable<
 	JSX.IntrinsicElements['img']['style']
 >;
@@ -23,7 +24,7 @@ export type TImage = {
 export type TCard = {
 	image: { src?: string };
 	dateSentence: TDateSentence;
-	informationCard: any
+	informationCard: TComic;
 
 };
 
@@ -58,22 +59,19 @@ height: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_ON_ONE_COLUMN(props.viewP
 	& img {
 		border-radius: 5px;
 	}
-}
-  `;
+}`;
 
-const Card: React.FC<TCard> = ({ image: { src }, dateSentence }) => {
-
+const Card: React.FC<TCard> = ({ image: { src }, dateSentence, informationCard }) => {
 	return (
 		<>
 			<div className="img_card">
 				<Image
 					src={src ? src : `${PATH.ASSETS.IMAGES}${NAMES.IMAGE_DEFAULT}`}
-					alt={'test'}
+					alt={informationCard.name}
 					layout="fill"
-					objectFit="cover"
+					objectFit="contain"
 				/>
 			</div>
-
 			<DateSentence {...dateSentence} />
 		</>
 

@@ -21,6 +21,7 @@ const FullScreenComponent: React.FC<Props> = ({ children }) => {
     height:100%;
     width: 100%;
   .fullscreen_icon {
+	cursor: pointer;
 	position: absolute; 
 	bottom: 2rem;
     left: 10vw;

@@ -13,7 +13,7 @@ display: grid;
 grid-template-columns: repeat(4, 1fr);
 grid-template-rows: auto;
 justify-items: center;
-grid-row-gap: 5px;
+grid-row-gap: 20px;
 margin:auto;
 position:relative;
 z-index:2;

@@ -16,7 +16,7 @@ const dataCommon = {
 		iconTitle: 'Title_howpow_large',
 		mainAnnonce: {
 			title: {
-				part_1: 'soutenez',
+				part_1: 'soutener',
 				part_2: 'la production en vous abonnant !',
 			},
 			invitation: {

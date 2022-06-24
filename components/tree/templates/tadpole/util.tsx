@@ -13,6 +13,8 @@ const ComponentsSlider = (viewPortWidth: number) => {
         position: relative;
         width:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).WIDTH}px !important;
         height:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).HEIGHT}px;
+         & img {border-radius: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BORDER_RADIUS_5(viewPortWidth)}px;
+        }
     `}> <Image
             src={
                 comp.image.src
@@ -20,8 +22,9 @@ const ComponentsSlider = (viewPortWidth: number) => {
                     : `${PATH.ASSETS.IMAGES}${NAMES.IMAGE_DEFAULT}`
             }
             alt="test"
-            layout="fill"
-            objectFit='contain'
+            layout="responsive"
+            width={SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).WIDTH}
+            height={SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).HEIGHT}
 
         />
     </div>)

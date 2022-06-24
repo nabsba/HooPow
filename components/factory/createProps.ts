@@ -38,19 +38,19 @@ const createPropsFromData = (type: string, data: any) => {
 					image: {
 						src: PATHS_SERVER.IMAGES('images/MSHOW_01_ADDITION_01.jpg'),
 					},
-					id: 1,
+					informationCard: data,
 				},
 				{
 					image: {
 						src: PATHS_SERVER.IMAGES('images/MSHOW_01_ADDITION_01.jpg'),
 					},
-					id: 1,
+					informationCard: data,
 				},
 				{
 					image: {
 						src: PATHS_SERVER.IMAGES('images/MSHOW_01_ADDITION_01.jpg'),
 					},
-					id: 1,
+					informationCard: data,
 				},
 			];
 			return gallery;

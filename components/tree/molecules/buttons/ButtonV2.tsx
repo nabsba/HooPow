@@ -15,7 +15,7 @@ justify-content: flex-start;
 width: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BUTTON_V2(props.viewPortWidth).WIDTH}px;
 height: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BUTTON_V2(props.viewPortWidth).HEIGHT}px;
 border-radius: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BORDER_RADIUS_42(props.viewPortWidth)}px;
-border: 4px solid white;
+border: 2px solid white;
 & .button_v2_icon {
     width: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BUTTON_V2_ICON(props.viewPortWidth).WIDTH}px;
     height: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BUTTON_V2_ICON(props.viewPortWidth).HEIGHT}px;

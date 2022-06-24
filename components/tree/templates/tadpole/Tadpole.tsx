@@ -23,7 +23,7 @@ const Tadpole: React.FC = ({ }) => {
         getNewListComics, pendingFirstList, pendingNewList, handleComicsInformations } = React.useContext(ComicsChildContext);
     const { scrollRef } = RetrieveComicsOnScrolling(comicsInformations, getNewListComics);
     const { componentsCards, componentsCardsOnLoad } = ComponentsCards(viewPort.width, handleComicsInformations, comicsInformations);
-    const { componentsSlide } = ComponentsSlider(viewPort.width)
+    const { componentsSlide } = ComponentsSlider(viewPort.width, stateFullScreen)
     const card = createPropsFromData('card', comicsInformations.comicSelected);
     const theme: any = useTheme();
     const { annonce, mainAnnonce, userMenu } = dataCommon.fr;

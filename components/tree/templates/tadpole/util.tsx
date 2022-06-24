@@ -7,7 +7,7 @@ import { Card } from "../../molecules";
 import { CSSCardOriginal, CSSCardVariant1, TCard } from "../../molecules/Card";
 import { TComicsInformations } from "../../../utils/contexts/Comics";
 
-const ComponentsSlider = (viewPortWidth: number) => {
+const ComponentsSlider = (viewPortWidth: number, stateFullScreen: { doWeDiplayFullScreen: boolean }) => {
     const componentsSliders = createPropsFromData('slidersComicImages', '');
     const componentsSlide = componentsSliders.map((comp: any) => <div className="card_slide_size" css={css`
         position: relative;
@@ -23,8 +23,8 @@ const ComponentsSlider = (viewPortWidth: number) => {
             }
             alt="test"
             layout="responsive"
-            width={SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).WIDTH}
-            height={SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).HEIGHT}
+            width={stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPortWidth).WIDTH : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).WIDTH}
+            height={stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPortWidth).HEIGHT : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).HEIGHT}
 
         />
     </div>)

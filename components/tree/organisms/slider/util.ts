@@ -1,6 +1,8 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
+import { SlideChildContext } from '../../../utils/contexts/Slider';
 
 const Util = () => {
+	const { contextSlider, handleSlider } = useContext(SlideChildContext)
 	const settings = {
 		dots: true,
 		fade: true,
@@ -9,16 +11,16 @@ const Util = () => {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		beforeChange: (current: any) => {
-			// handleSlider({
-			// 	oldSlide: current,
-			// 	activeSlide: contextSlider.activeSlide,
-			// });
+			handleSlider({
+				oldSlide: current,
+				activeSlide: contextSlider.activeSlide,
+			});
 		},
 		afterChange: (current: any) => {
-			// handleSlider({
-			// 	oldSlide: current,
-			// 	activeSlide: contextSlider.oldSlide,
-			// });
+			handleSlider({
+				oldSlide: current,
+				activeSlide: contextSlider.oldSlide,
+			});
 		},
 	};
 

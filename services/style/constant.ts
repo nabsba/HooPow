@@ -76,12 +76,24 @@ const SIZE_XD_DEFAULT = {
         WIDTH: 1152,
         HEIGHT: 1038,
     },
+    GALLERY_COLUMN: {
+        WIDTH: 210,
+        HEIGHT: 1038,
+    },
     CARD: {
         WIDTH: 258,
         HEIGHT: 281,
         IMAGE: {
             WIDTH: 258,
             HEIGHT: 258
+        }
+    },
+    CARD_ON_ONE_COLUMN: {
+        WIDTH: 210,
+        HEIGHT: 230,
+        IMAGE: {
+            WIDTH: 210,
+            HEIGHT: 210
         }
     },
     MAIN_CHARACTER: {
@@ -121,6 +133,18 @@ const SIZE_XD_DEFAULT = {
 };
 
 const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
+    CARD_ON_ONE_COLUMN: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD_ON_ONE_COLUMN.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD_ON_ONE_COLUMN.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    CARD_ON_ONE_COLUMN_IMAGE: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD_ON_ONE_COLUMN.IMAGE.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.CARD_ON_ONE_COLUMN.IMAGE.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
     SLIDER_IMAGE: (actualViewPortWidth: number) => {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.SLIDER_IMAGE.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
@@ -269,7 +293,13 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
     GALLERY_MULTIPLE_ROWS: (actualViewPortWidth: number) => {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.GALLERY_MULTIPLE_ROWS.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
-            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.GALLERY_MULTIPLE_ROWS.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.GALLERY_MULTIPLE_ROWS.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
+    GALLERY_COLUMN: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.GALLERY_COLUMN.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.GALLERY_COLUMN.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
     },
     MAIN_CHARACTER: (actualViewPortWidth: number) => {

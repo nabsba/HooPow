@@ -97,7 +97,6 @@ export const CSSAnnonceVariant =
 
 
 const AnnonceSmall: React.FC<TAnnonceSmall> = ({ text_first, text_second }) => {
-    const { viewPort } = React.useContext(ViewPortChildContext);
     return (<>
         <span className="police_bilo first_span_annonce_small" >
             {text_first}</span>

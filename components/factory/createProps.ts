@@ -33,7 +33,6 @@ const createPropsFromData = (type: string, data: any) => {
 			return card;
 		}
 		case 'slidersComicImages': {
-			console.log('hello')
 			const gallery = [
 				{
 					image: {

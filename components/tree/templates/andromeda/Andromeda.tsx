@@ -18,7 +18,7 @@ const Andromeda: React.FC<Props> = () => {
     const { viewPort } = React.useContext(ViewPortChildContext);
     const { comicsInformations,
         getNewListComics, pendingFirstList, pendingNewList, handleComicsInformations } = useContext(ComicsChildContext);
-    const { componentsCards, componentsCardsOnLoad } = ComponentsCards(comicsInformations.comicsDisplayed, viewPort.width, handleComicsInformations, comicsInformations);
+    const { componentsCards, componentsCardsOnLoad } = ComponentsCards(viewPort.width, handleComicsInformations, comicsInformations);
     const { scrollRef } = RetrieveComicsOnScrolling(comicsInformations, getNewListComics);
     const CSSstyleMainComponent = css`
     overflow: auto; 
@@ -43,7 +43,7 @@ const Andromeda: React.FC<Props> = () => {
             </LeftSideFrame>
             <RightSideFrame>
                 <div className="andromeda_main_component" ref={scrollRef} css={CSSstyleMainComponent}>
-                    <CSSGaleryRows styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.GALLERY_MULTIPLE_ROWS(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.GALLERY_MULTIPLE_ROWS(viewPort.width).HEIGHT }}>
+                    <CSSGaleryRows viewPortWidth={viewPort.width}>
                         <Gallery componentsHTML={pendingFirstList ? componentsCardsOnLoad : componentsCards} />
                         {pendingNewList && <Gallery componentsHTML={componentsCardsOnLoad} />}
                     </CSSGaleryRows>

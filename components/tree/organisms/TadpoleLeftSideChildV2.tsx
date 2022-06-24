@@ -34,7 +34,7 @@ const TadpoleLeftSideChildV2: React.FC = () => {
     `
 
     return <div className={'flex_column_center_around'} css={base}>
-        <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPortWidth).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPortWidth).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPortWidth).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPortWidth).HEIGHT } }} >
+        <CSSCardOriginal viewPortWidth={viewPortWidth} >
             <Card {...card} />
         </CSSCardOriginal>
 

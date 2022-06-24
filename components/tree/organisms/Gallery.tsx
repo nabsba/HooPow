@@ -26,7 +26,7 @@ height: ${(props) => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.GALLERY_COLUMN(props.viewPor
 display: grid;
 grid-template-columns: repeat(1, 1fr);
 grid-template-rows: auto;
-gap: 10px 0px;
+grid-row-gap: 20px;
 
 `;
 

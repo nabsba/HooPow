@@ -4,6 +4,8 @@ import { TComicsInformations } from '../../../utils/contexts/Comics';
 import Card, { CSSCardOriginal, TCard } from '../../molecules/Card';
 
 const Loading = () => <span style={{ textAlign: 'center', color: 'white', textTransform: 'capitalize' }}> add a loader</span>;
+
+
 const ComponentsCards = (viewPortWidth: number, handleComicsInformations: any, comicsInformations: TComicsInformations) => {
     const cards = createPropsFromData('cards', comicsInformations.comicsDisplayed);
     const componentsCards = cards.map((card: TCard) =>
@@ -24,8 +26,6 @@ const ComponentsCards = (viewPortWidth: number, handleComicsInformations: any, c
     }
     return { componentsCards, componentsCardsOnLoad };
 };
-
-
 
 const RetrieveComicsOnScrolling = (comicsInformations: TComicsInformations, functionToRetrieve: any) => {
     const scrollRef: any = useBottomScrollListener(async () => {

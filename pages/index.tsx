@@ -19,7 +19,8 @@ const Home: NextPage = () => {
 		getNewListComics,
 		handleComicsInformations,
 		pendingFirstList,
-		pendingNewList
+		pendingNewList,
+		errorServer,
 	} = ComicsParentContext();
 	return (
 		<div>
@@ -37,7 +38,8 @@ const Home: NextPage = () => {
 								getNewListComics,
 								pendingFirstList,
 								handleComicsInformations,
-								pendingNewList
+								pendingNewList,
+								errorServer
 							}}
 						>
 							{comicsInformations.comicSelected.id ? <Tadpole /> : <Andromeda />}

@@ -4,12 +4,14 @@ import { TComic } from '../../../services/data/type';
 import { PATHS_SERVER } from '../../../services/bridge/constant';
 import { serverGet } from '../../../services/bridge/requestServer';
 import { logErrorAsyncMessage, logMessage } from '../../../services/common/funtions';
+import { fetchAllComics } from '../../../services/comics/functions';
 
 export type TComicsInformations = {
     language: TLanguages;
     allComics: TComic[];
     comicsDisplayed: any[];
     comicSelected: any;
+    comicSelectedDetails: any,
     totalNumberOfComicsAvailableInTheDB: number;
     numberOfPages: number;
     comicsPerPage: number;
@@ -22,6 +24,7 @@ interface ComicsContext {
     getNewListComics: () => any;
     pendingFirstList: boolean;
     pendingNewList: boolean;
+    errorServer: boolean;
 }
 
 export const ComicsChildContext = React.createContext<ComicsContext>({
@@ -30,6 +33,7 @@ export const ComicsChildContext = React.createContext<ComicsContext>({
         allComics: [],
         comicsDisplayed: [],
         comicSelected: {},
+        comicSelectedDetails: {},
         totalNumberOfComicsAvailableInTheDB: 0,
         numberOfPages: 0,
         comicsPerPage: 20,
@@ -38,50 +42,66 @@ export const ComicsChildContext = React.createContext<ComicsContext>({
     handleComicsInformations: (data: TComicsInformations) => data,
     getNewListComics: () => '',
     pendingFirstList: false,
-    pendingNewList: false
+    pendingNewList: false,
+    errorServer: false
 });
 
 
 const ComicsParentContext = () => {
     const [pendingFirstList, setPendingFirstList] = useState(false);
+    const [errorServer, setErrorServer] = useState(false)
     const [pendingNewList, setPendingNewList] = useState(false);
     const [comicsInformations, setComicsInformations] = useState<TComicsInformations>({
         language: 'fr',
         allComics: [],
         comicsDisplayed: [],
         comicSelected: {},
+        comicSelectedDetails: {},
         totalNumberOfComicsAvailableInTheDB: 0,
         numberOfPages: 0,
         comicsPerPage: 20,
         page: 1,
     });
     useEffect(() => {
-        const cancelToken = axios.CancelToken;
-        const source = cancelToken.source();
-        const fetchAllComics = async () => {
+        const fetchComicDetail = async () => {
             try {
-                setPendingFirstList(true);
                 const result = await serverGet(PATHS_SERVER.ALL_COMICS);
                 if (result.state) {
-                    handleComicsInformations({
-                        ...comicsInformations,
-                        allComics: result.data,
-                        totalNumberOfComicsAvailableInTheDB: result.data.length,
-                        numberOfPages: result.data.length / 20,
-                        comicsDisplayed: result.data.slice(0, comicsInformations.page * 20),
-                        page: 1,
-                    });
+
                 }
             } catch (error) {
-                logMessage(`${logErrorAsyncMessage('cntexts/Comics', 'fetchAllComics')},
-                ${error}`);
-            } finally {
-                // setTimeout(() => setPendingFirstList(false), 10000)
-                setPendingFirstList(false)
 
             }
-        };
-        fetchAllComics();
+        }
+        if (comicsInformations.comicSelected.id) {
+            fetchComicDetail()
+        }
+    }, [comicsInformations.comicSelected])
+    useEffect(() => {
+        const cancelToken = axios.CancelToken;
+        const source = cancelToken.source();
+        setPendingFirstList(true);
+        (async () => {
+            try {
+                const comics = await fetchAllComics();
+                if (comics) {
+                    handleComicsInformations({
+                        ...comicsInformations,
+                        allComics: comics,
+                        totalNumberOfComicsAvailableInTheDB: comics.length,
+                        numberOfPages: comics.length / 20,
+                        comicsDisplayed: comics.slice(0, comicsInformations.page * 20),
+                        page: 1,
+                    });
+                    setPendingFirstList(false);
+                    return;
+                } else { throw new Error() }
+            } catch {
+                setPendingFirstList(false);
+                setErrorServer(true)
+            }
+
+        })()
         return () => {
             source.cancel('axios request cancelled');
         };
@@ -133,7 +153,9 @@ const ComicsParentContext = () => {
         pendingFirstList,
         getNewListComics,
         handleComicsInformations,
-        pendingNewList
+        pendingNewList,
+        errorServer
+
     };
 };
 

@@ -285,6 +285,7 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
         }
     },
     FONT_SIZE_21: (actualViewPortWidth: number) => (21 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
+    FONT_SIZE_22: (actualViewPortWidth: number) => (22 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     FONT_SIZE_15: (actualViewPortWidth: number) => (15 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     FONT_SIZE_17: (actualViewPortWidth: number) => (17 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,
     FONT_SIZE_25: (actualViewPortWidth: number) => (25 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH) * actualViewPortWidth,

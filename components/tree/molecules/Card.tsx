@@ -6,6 +6,7 @@ import { PATH, SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../../services';
 import { NAMES } from '../../../services/data/constant';
 import { TDateSentence } from '../atoms/DateSentence';
 import { TComic } from '../../../services/data/type';
+import { ViewPortChildContext } from '../../utils/contexts/ViewPort';
 declare type ImgElementStyle = NonNullable<
 	JSX.IntrinsicElements['img']['style']
 >;
@@ -43,6 +44,9 @@ height: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(props.viewPortWidth).HEIG
 		border-radius: 5px;
 	}
 }
+.card_data_sentence {
+	padding-top:8px;
+}
 `;
 export const CSSCardVariant1 = styled(CSSCardOriginal)`
 opacity: .4;
@@ -56,23 +60,27 @@ height: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_ON_ONE_COLUMN(props.viewP
 	width: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_ON_ONE_COLUMN_IMAGE(props.viewPortWidth).WIDTH}px;
 	height: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_ON_ONE_COLUMN_IMAGE(props.viewPortWidth).HEIGHT}px;
 	position:relative;
-	& img {
-		border-radius: 5px;
-	}
-}`;
+}
+
+`;
 
 const Card: React.FC<TCard> = ({ image: { src }, dateSentence, informationCard }) => {
+	const { viewPort } = React.useContext(ViewPortChildContext);
 	return (
 		<>
 			<div className="img_card">
 				<Image
 					src={src ? src : `${PATH.ASSETS.IMAGES}${NAMES.IMAGE_DEFAULT}`}
 					alt={informationCard.name}
-					layout="fill"
-					objectFit="contain"
+					layout="responsive"
+					width={`${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH}`}
+					height={`${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT}`}
+
 				/>
 			</div>
-			<DateSentence {...dateSentence} />
+			<div className="card_data_sentence">
+				<DateSentence {...dateSentence} />
+			</div>
 		</>
 
 	);

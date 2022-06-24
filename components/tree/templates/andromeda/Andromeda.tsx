@@ -14,7 +14,7 @@ import { ComponentsCards, RetrieveComicsOnScrolling } from './utils';
 type Props = any;
 
 const Andromeda: React.FC<Props> = () => {
-    const { mainAnnonce, annonce, iconTitle } = dataCommon.fr;
+    const { mainAnnonce, annonce, iconTitle, userMenu } = dataCommon.fr;
     const { viewPort } = React.useContext(ViewPortChildContext);
     const { comicsInformations,
         getNewListComics, pendingFirstList, pendingNewList, handleComicsInformations } = useContext(ComicsChildContext);
@@ -34,7 +34,7 @@ const Andromeda: React.FC<Props> = () => {
     right: -20%;`;
     return (
         <>
-            <LeftSideFrame>
+            <LeftSideFrame userMenu={userMenu}>
                 <LeftV211
                     annonce={annonce}
                     iconTitle={iconTitle}

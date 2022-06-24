@@ -175,6 +175,12 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
             HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.BUTTON_V2.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
         }
     },
+    BUTTON_V2_MENU: (actualViewPortWidth: number) => {
+        return {
+            WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.BUTTON_V2.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            HEIGHT: actualViewPortWidth * (40 / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+        }
+    },
     BUTTON_V2_ICON: (actualViewPortWidth: number) => {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.BUTTON_V2_ICON.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),

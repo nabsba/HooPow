@@ -14,7 +14,6 @@ type TLeftV211 = {
     mainAnnonce: TMainAnnonce
 }
 
-
 const LeftV211: React.FC<TLeftV211> = ({ annonce }) => {
     const { mainAnnonce } = dataCommon.fr
     const { viewPort } = React.useContext(ViewPortChildContext);

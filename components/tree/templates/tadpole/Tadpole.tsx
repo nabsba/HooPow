@@ -25,10 +25,11 @@ const Tadpole: React.FC = ({ }) => {
     const { componentsSlide } = ComponentsSlider(viewPort.width)
     const card = createPropsFromData('card', comicsInformations.comicSelected);
     const theme: any = useTheme();
-    const { annonce, mainAnnonce } = dataCommon.fr;
+    const { annonce, mainAnnonce, userMenu } = dataCommon.fr;
     const { handleSlider, contextSlider } = SlideParentContext();
     const isItTheLastSlide =
         contextSlider.oldSlide + 1 === componentsSlide.length;
+
     const CSSSlider = css`
         display: flex;
         height: 100%;
@@ -47,8 +48,7 @@ const Tadpole: React.FC = ({ }) => {
             <SlideChildContext.Provider value={{
                 handleSlider, contextSlider
             }}>
-
-                <LeftSideFrame>
+                <LeftSideFrame userMenu={userMenu}>
                     {contextSlider.oldSlide > 0 ? <TadpoleLeftSideChildV2 /> : <TadpoleLeftSideChildV1 card={card} viewPortWidth={viewPort.width} mainAnnonce={mainAnnonce} />}
                 </LeftSideFrame>
                 <RightSideFrame>

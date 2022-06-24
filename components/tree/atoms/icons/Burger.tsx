@@ -10,7 +10,7 @@ export type TBurger = {
 };
 
 
-const Burger: React.FC<TBurger> = (state) => {
+const Burger: React.FC<TBurger> = (props) => {
 	const { viewPort } = useContext(ViewPortChildContext);
 	const base: any = (props: TTheme) => css`
 	width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BURGER(viewPort.width).WIDTH}px;
@@ -23,16 +23,25 @@ const Burger: React.FC<TBurger> = (state) => {
 	& span {
 		   width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SPAN_BURGER(viewPort.width).WIDTH}px;
 			height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SPAN_BURGER(viewPort.width).HEIGHT}px;
+			
 			background-color: ${props.COLORS.PRIMARY}
 	}
+	.wrapper_twins {
+		width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SPAN_BURGER(viewPort.width).WIDTH}px;
+		height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SPAN_BURGER(viewPort.width).HEIGHT}px;
+		margin-top:	15%;
+		margin-bottom: 15%;
+	
+	}
+	
   `
 	return (
 		<div className={styles.burger} css={base} >
 			<div
-				className={`max_content_size margin_auto flex_column global_sub_burger${styles.sub_burger} ${state && styles.burger_open} `}
+				className={`max_content_size margin_auto flex_column global_sub_burger${styles.sub_burger} ${props.state && styles.burger_open} `}
 			>
 				<span className={styles.span_first} />
-				<div className={styles.wrapper_twins_spans}>
+				<div className={`${styles.wrapper_twins_spans} wrapper_twins`}>
 					<span />
 					<span />
 				</div>

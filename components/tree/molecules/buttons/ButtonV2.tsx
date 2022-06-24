@@ -11,6 +11,7 @@ type TButtonV2 = {
 export const CSSButtonOriginal = styled.div<{ viewPortWidth: number }>`
 display:flex;
 align-items: center;
+cursor: pointer;
 justify-content: flex-start;
 width: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BUTTON_V2(props.viewPortWidth).WIDTH}px;
 height: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BUTTON_V2(props.viewPortWidth).HEIGHT}px;
@@ -34,6 +35,7 @@ export const CSSButtonMenu = styled.button<{ viewPortWidth: number }>`
 display:flex;
 background-color: #e6e6e6;
 border: none;
+cursor: pointer;
 border-radius: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BORDER_RADIUS_42(props.viewPortWidth)}px;
 font-size: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_17(props.viewPortWidth)}px;
 width: 100%;
@@ -50,6 +52,7 @@ display:flex;
 align-items: center;
 font-size: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_17(props.viewPortWidth)}px;
 background-color: white;
+cursor: pointer;
 .button_v2_icon {
     svg {
         width: 4vw

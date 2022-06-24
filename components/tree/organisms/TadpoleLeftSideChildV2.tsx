@@ -50,7 +50,7 @@ const TadpoleLeftSideChildV2: React.FC = () => {
                     <ButtonV2 icon={'Full_screen'} text={'PLEIN ECRAN'} />
                 </CSSButtonOriginal>
             </div>
-            <div style={{ padding: '.7rem' }} />
+            <div style={{ padding: '5%' }} />
             <div onClick={() => handleComicsInformations({ ...comicsInformations, comicSelected: {} })}>
                 <CSSButtonOriginal viewPortWidth={viewPortWidth} >
                     <ButtonV2 icon={'House'} text={'ACCEUIL'} />

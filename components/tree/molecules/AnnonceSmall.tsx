@@ -44,22 +44,22 @@ color: white;
 display:flex;
 align-items: center;
 right: 0;
-    & span {
-        font-size: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_21(props.viewPortWidth)}px;
-    }
+  
     & .first_span_annonce_small {
         color: white;
-        text-transform: capitalize;
-    
-        padding-left:10%;
+        font-size: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_21(props.viewPortWidth)}px;
         font-weight: bold;
+        &::first-letter {
+            text-transform: uppercase;
+        }
     }
     & .second_span_annonce_small {
-  
         color: white;
         font-weight: bold;
         text-transform: uppercase;
-    }
+        font-size: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_25(props.viewPortWidth)}px;
+
+        }
     `;
 
 
@@ -77,21 +77,23 @@ export const CSSAnnonceVariant =
     display:flex;
     align-items: center;
     right: 0;
-    & span {
-        font-size: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_21(props.viewPortWidth)}px;
-    }
     & .first_span_annonce_small {
+        &::first-letter {
+            text-transform: uppercase;
+        }
         color: white;
-        text-transform: capitalize;
         flex:1;
         padding-left:10%;
-        font-weight: bold;
+        font-weight: 500;
+        font-size: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_21(props.viewPortWidth)}px;
     }
     & .second_span_annonce_small {
         flex:1;
         color: white;
+       
         font-weight: bold;
         text-transform: uppercase;
+        font-size: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_25(props.viewPortWidth)}px;
     }
     `;
 
@@ -100,7 +102,7 @@ const AnnonceSmall: React.FC<TAnnonceSmall> = ({ text_first, text_second }) => {
     return (<>
         <span className="police_bilo first_span_annonce_small" >
             {text_first}</span>
-        <span className="police_bilo second_span_annonce_small"> {text_second}</span>
+        <span className="police_inter second_span_annonce_small"> {text_second}</span>
     </>)
 
 

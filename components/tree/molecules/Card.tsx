@@ -30,6 +30,7 @@ export type TCard = {
 export const CSSCardOriginal = styled.div<any>`
 position: relative;
 display:flex;
+cursor: pointer;
 flex-direction: column;
 width: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(props.viewPortWidth).WIDTH}px;
 height: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(props.viewPortWidth).HEIGHT}px;
@@ -44,6 +45,7 @@ height: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(props.viewPortWidth).HEIG
 `;
 export const CSSCardVariant1 = styled(CSSCardOriginal)`
 opacity: .4;
+cursor: pointer;
 position: relative;
 display:flex;
 flex-direction: column;

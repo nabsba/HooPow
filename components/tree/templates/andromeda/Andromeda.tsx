@@ -33,7 +33,6 @@ const Andromeda: React.FC<Props> = () => {
     top: -11%;
     right: -20%;`;
 
-    console.log(componentsCards.length)
     return (
         <>
             <LeftSideFrame userMenu={userMenu}>

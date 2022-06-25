@@ -7,7 +7,6 @@ const Loading = () => <span style={{ textAlign: 'center', color: 'white', textTr
 
 
 const ComponentsCards = (viewPortWidth: number, handleComicsInformations: any, comicsInformations: TComicsInformations) => {
-
     const cards = createPropsFromData('cards', comicsInformations.comicsDisplayed);
     const componentsCards = cards.map((card: TCard) =>
         <CSSCardOriginal key={card.dateSentence.sentence} viewPortWidth={viewPortWidth} >

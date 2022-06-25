@@ -62,9 +62,10 @@ const ComicsParentContext = () => {
     useEffect(() => {
         const cancelToken = axios.CancelToken;
         const source = cancelToken.source();
-        (async () => {
-            setPending(true)
+        const getComicDetail = async () => {
+
             try {
+                setPending(true)
                 const comic = await fetchComic(comicsInformations.comicSelected.id);
                 if (comic) {
                     handleComicsInformations({
@@ -82,16 +83,15 @@ const ComicsParentContext = () => {
             finally {
                 setPending(false)
             }
-        })();
+        };
+        if (comicsInformations.comicSelected.id) getComicDetail()
         return () => {
             source.cancel('axios request cancelled');
         };
-
     }, [comicsInformations.comicSelected.id])
     useEffect(() => {
         const cancelToken = axios.CancelToken;
         const source = cancelToken.source();
-        console.log('fired');
         (async () => {
             try {
                 setPendingFirstList(true);
@@ -114,7 +114,6 @@ const ComicsParentContext = () => {
                 logMessage(`${logErrorAsyncMessage('contexts/Comics', 'fetchComic')},
                 ${error}`);
             }
-
         })()
         return () => {
             source.cancel('axios request cancelled');
@@ -123,8 +122,8 @@ const ComicsParentContext = () => {
 
     const getNewListComics = async () => {
         try {
-            setPending(true)
             if (comicsInformations.numberOfPages > comicsInformations.page) {
+                setPending(true)
                 /* Remote */
 
                 // const lastIndex = comicsInformations.comicsDisplayed.length - 1;
@@ -152,12 +151,11 @@ const ComicsParentContext = () => {
                     comicsDisplayed: [...comicsInformations.comicsDisplayed, ...newDataToPush],
                     page: page + 1,
                 });
+                setPending(false)
             }
         } catch (error) {
             logMessage(`${logErrorAsyncMessage('cntexts/Comics', 'getNewListComics')},
 			${error}`);
-        } finally {
-            // setTimeout(() => setPending(false), 10000);
             setPending(false)
         }
     };

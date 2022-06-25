@@ -22,7 +22,6 @@ const Home: NextPage = () => {
 		pending,
 		errorServer,
 	} = ComicsParentContext();
-
 	return (
 		<div>
 			<Head>
@@ -43,7 +42,7 @@ const Home: NextPage = () => {
 				>
 					<ThemeProvider theme={THEME}>
 						<MainFrame>
-							{comicsInformations.comicSelected.id && comicsInformations.comicSelectedDetails.bdImage ? <Tadpole /> : <Andromeda />}
+							{comicsInformations.comicSelected.id ? comicsInformations.comicSelectedDetails.bdImage ? <Tadpole /> : <h1> loading </h1> : <Andromeda />}
 						</MainFrame >
 					</ThemeProvider>
 				</ComicsChildContext.Provider>

@@ -19,7 +19,7 @@ const LeftV211: React.FC<TLeftV211> = ({ annonce }) => {
     const { viewPort } = React.useContext(ViewPortChildContext);
     const theme: any = useTheme();
 
-    return (<div className="flex_column_center_between" style={{ flex: 1, paddingTop: '1rem' }}>
+    return (<div className="flex_column_center_between" style={{ flex: 1, paddingTop: '1.5rem' }}>
         <CSSAnnonceOriginal
             viewPortWidth={viewPort.width}
             background={theme.COLORS.PRIMARY}>

@@ -23,7 +23,7 @@ const Andromeda: React.FC<Props> = () => {
     const CSSstyleMainComponent = css`
     overflow: auto; 
     height: 100%;
-     padding-top: 6%; 
+     padding-top:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.POSITION_GALLERY_ROW_TOP(viewPort.width)}px;
      position: relative
     `;
     const CSSstyleMainCharacter = css`

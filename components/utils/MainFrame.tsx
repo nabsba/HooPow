@@ -10,12 +10,10 @@ type TMainFrame = {
 const MainFrame: React.FC<TMainFrame> = ({ children }) => {
   const { handleViewPortInformations, viewPort } = ViewPortParentContext();
   const base: any = css`
-height: 100vh;
 width: 100%;
 margin: auto;
-height: 100vh;
-padding:.5rem;
-height:${viewPort.width > 790 ? '100vh' : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_SIDE_HEIGHT(viewPort.width)}px;
+height:${viewPort.width > 790 ? '97vh' : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.HEIGHT_MAIN_FRAME(viewPort.width)
+    };
 `
 
   return (<div className="flex"

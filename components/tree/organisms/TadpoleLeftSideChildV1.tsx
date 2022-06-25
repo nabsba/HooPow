@@ -12,7 +12,7 @@ type TTadpoleLeftSideChildV1 = {
 const TadpoleLeftSideChildV1: React.FC<TTadpoleLeftSideChildV1> = ({ card, viewPortWidth, mainAnnonce }) => {
     return <div className='flex_column_center_end' style={{ flex: 1 }}>
         <div css={css`
-        margin-bottom: 7%;
+        margin-bottom: 10%;
         .card_data_sentence {
             span {
             font-size:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.FONT_SIZE_22(viewPortWidth)}px;

@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../../../services';
 import { TTheme } from '../../../../services/style/type';
 import { ViewPortChildContext } from '../../../utils/contexts/ViewPort';

@@ -12,7 +12,7 @@ import { CSSCardOriginal } from "../molecules/Card";
 
 
 const TadpoleLeftSideChildV2: React.FC = () => {
-    const { handleStateFullScreen, stateFullScreen } = useContext(FullScreenChildContext);
+    const { handleStateFullScreen } = useContext(FullScreenChildContext);
     const { comicsInformations, handleComicsInformations } = useContext(ComicsChildContext);
     const { viewPort } = React.useContext(ViewPortChildContext);
     const viewPortWidth = viewPort.width;

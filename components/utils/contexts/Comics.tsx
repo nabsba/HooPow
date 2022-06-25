@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { TComic } from '../../../services/data/type';
-import { PATHS_SERVER } from '../../../services/bridge/constant';
-import { serverGet } from '../../../services/bridge/requestServer';
 import { logErrorAsyncMessage, logMessage } from '../../../services/common/funtions';
 import { fetchAllComics, fetchComic } from '../../../services/comics/functions';
 

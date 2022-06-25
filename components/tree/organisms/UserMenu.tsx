@@ -58,7 +58,7 @@ const UserMenu: React.FC<TUserMenu> = ({ top, middle, bottom }) => {
             </div>
             <div className="user_menu_separator" />
             <div className="middle_user_menu">
-                {middle.map((element, index) =>
+                {middle.map((element) =>
                     <CSSButtonIcon key={element.icon} viewPortWidth={viewPort.width}>
                         <ButtonV2 text={element.text} icon={element.icon} />
                     </CSSButtonIcon>

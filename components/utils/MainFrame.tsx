@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
-import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../services';
 import ViewPortParentContext, { ViewPortChildContext } from './contexts/ViewPort';
 
 type TMainFrame = {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled'
 import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../../services';
-import { ViewPortChildContext } from '../../utils/contexts/ViewPort';
+
 
 export type TAnnonceSmall = {
     text_first: string;

@@ -10,7 +10,7 @@ import { TComicsInformations } from "../../../utils/contexts/Comics";
 const ComponentsSlider = (viewPortWidth: number, stateFullScreen: { doWeDiplayFullScreen: boolean }, comicSelectedDetails: any) => {
 
     const componentsSliders = createPropsFromData('slidersComicImages', comicSelectedDetails);
-    const componentsSlide = componentsSliders.map((comp: any) => <div className="card_slide_size" css={css`
+    const componentsSlide = componentsSliders.map((comp: any) => <div key={comp.name} className="card_slide_size" css={css`
         position: relative;
         width:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).WIDTH}px !important;
         height:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).HEIGHT}px;
@@ -22,7 +22,7 @@ const ComponentsSlider = (viewPortWidth: number, stateFullScreen: { doWeDiplayFu
                     ? comp.image.src
                     : `${PATH.ASSETS.IMAGES}${NAMES.IMAGE_DEFAULT}`
             }
-            alt="test"
+            alt={comp.name}
             layout="responsive"
             width={stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPortWidth).WIDTH : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).WIDTH}
             height={stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPortWidth).HEIGHT : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).HEIGHT}
@@ -35,8 +35,8 @@ const Loading = () => <span style={{ textAlign: 'center', color: 'white', textTr
 
 const ComponentsCards = (viewPortWidth: number, handleComicsInformations: any, comicsInformations: TComicsInformations) => {
     const cards = createPropsFromData('cards', comicsInformations.comicsDisplayed);
-    const componentsCards = cards.map((card: TCard) =>
-        <CSSCardVariant1 viewPortWidth={viewPortWidth}>
+    const componentsCards = cards.map((card: TCard, index: number) =>
+        <CSSCardVariant1 key={index} viewPortWidth={viewPortWidth}>
             <div onClick={() => handleComicsInformations({
                 ...comicsInformations,
                 comicSelected: card.informationCard

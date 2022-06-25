@@ -1,8 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-import Home from '.';
-import { renderWithRouter } from '../services';
+import Home from './pages';
+import { renderWithRouter } from './services';
 import { screen } from '@testing-library/react';
 
 test('init first tests to check the configuration of react test library', async () => {

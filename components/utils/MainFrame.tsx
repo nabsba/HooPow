@@ -14,6 +14,7 @@ width: 100%;
 margin: auto;
 height: 100vh;
 padding:.5rem;
+
 `
 
   return (<div className="flex"

@@ -18,31 +18,35 @@ const UserMenu: React.FC<TUserMenu> = ({ top, middle, bottom }) => {
      .top_user_menu {
                 button {
                 margin-top:2vh;          
-                    &:first-type {
+                 &:first-child {
+                    span {
+                        color:white;
+                    }
                         margin-top:0vh;
+                        background-color:#444343;
                         }
                 }
-                background-color: white;
+            }
+            .user_menu_separator {
+                margin-top:2vh;  
+                margin-bottom: 2vh;
+                border: 1px solid #e6e6e6;
             }
      .middle_user_menu {
                 div {
-                    margin-top: 2vh; 
+                    margin-top: 1vh; 
                     &:first-type {
                         margin-top: 0vh; 
                     }
                 }
-     .user_menu_separator {
-                    margin-top:2vh;
-                    margin-bottom:2vh;
-                    height: 2px;
-                    background-color: #e6e6e6;
-                    }
+            }
      .bottom_user_menu {
+             
                     button {
+                        margin-top: 2vh; 
                         span {
                             color:grey;
-                        }
-                        margin-top: 2vh;    
+                        }  
                         &:first-type {
                             background-color:#e6e6e6;
                             margin-top:0;

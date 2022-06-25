@@ -43,8 +43,8 @@ const Home: NextPage = () => {
 				>
 					<ThemeProvider theme={THEME}>
 						<MainFrame>
-							{comicsInformations.comicSelected.id ? comicsInformations.comicSelectedDetails.bdImage ? <Tadpole /> : <h1> loading</h1> : <Andromeda />}
 
+							{comicsInformations.comicSelected.id && comicsInformations.comicSelectedDetails.bdImage ? <Tadpole /> : <Andromeda />}
 						</MainFrame >
 					</ThemeProvider>
 				</ComicsChildContext.Provider>

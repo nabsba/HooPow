@@ -21,7 +21,6 @@ const Tadpole: React.FC = ({ }) => {
     const { viewPort } = React.useContext(ViewPortChildContext);
     const { comicsInformations,
         getNewListComics, pending, handleComicsInformations, errorServer } = React.useContext(ComicsChildContext);
-
     const { scrollRef } = RetrieveComicsOnScrolling(comicsInformations, getNewListComics);
     const { componentsCards, componentsCardsOnLoad } = ComponentsCards(viewPort.width, handleComicsInformations, comicsInformations);
     const { componentsSlide } = ComponentsSlider(viewPort.width, stateFullScreen, comicsInformations.comicSelectedDetails)
@@ -73,9 +72,11 @@ const Tadpole: React.FC = ({ }) => {
                     {errorServer ? <h1> Your error component</h1> :
                         <FullScreenComponent>
                             <div css={base}>
-                                <div className="tadpole_slider">
-                                    <SliderComponent Components={componentsSlide} wiewPortWidth={viewPort.width} />
-                                </div>
+                                {componentsSlide.length && componentsSlide.length > 0 ?
+                                    <div className="tadpole_slider">
+                                        <SliderComponent Components={componentsSlide} wiewPortWidth={viewPort.width} />
+                                    </div> : <h1> loading</h1>
+                                }
                                 {!isItTheLastSlide && !stateFullScreen.doWeDiplayFullScreen && <CSSAnnonceVariant
                                     viewPortWidth={viewPort.width}
                                     background={theme.COLORS.PRIMARY}>

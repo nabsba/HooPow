@@ -187,8 +187,7 @@ const getIcon = (indice: string, props?: any): ReactElement => {
                     id="Group_5583"
                     data-name="Group 5583"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="inherit"
-                    height="inherit"
+
                     viewBox="0 0 86 86"
                 >
                     <circle
@@ -213,8 +212,7 @@ const getIcon = (indice: string, props?: any): ReactElement => {
             return (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="inherit"
-                    height="inherit"
+
                     viewBox="0 0 36.482 36.482"
                 >
                     <path
@@ -229,8 +227,7 @@ const getIcon = (indice: string, props?: any): ReactElement => {
             return (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="inherit"
-                    height="inherit"
+
                     viewBox="0 0 31.894 31.897"
                 >
                     <path
@@ -246,8 +243,7 @@ const getIcon = (indice: string, props?: any): ReactElement => {
             return (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="inherit"
-                    height="inherit"
+
                     viewBox="0 0 64.065 64.066"
                 >
                     <g

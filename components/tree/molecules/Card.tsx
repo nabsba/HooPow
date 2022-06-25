@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import styled from '@emotion/styled'
 import { DateSentence } from '../atoms';
@@ -64,7 +64,9 @@ height: ${props => SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_ON_ONE_COLUMN(props.viewP
 
 `;
 
+
 const Card: React.FC<TCard> = ({ image: { src }, dateSentence, informationCard }) => {
+	const [loaded, setLoaded] = useState(false)
 	const { viewPort } = React.useContext(ViewPortChildContext);
 	return (
 		<>
@@ -75,11 +77,14 @@ const Card: React.FC<TCard> = ({ image: { src }, dateSentence, informationCard }
 					layout="responsive"
 					width={`${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH}`}
 					height={`${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT}`}
-
+					onLoadingComplete={() => setLoaded(true)}
 				/>
 			</div>
 			<div className="card_data_sentence">
-				<DateSentence {...dateSentence} />
+				{
+					(loaded && <DateSentence {...dateSentence} />)
+
+				}
 			</div>
 		</>
 

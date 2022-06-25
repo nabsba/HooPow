@@ -91,7 +91,7 @@ const ComicsParentContext = () => {
     useEffect(() => {
         const cancelToken = axios.CancelToken;
         const source = cancelToken.source();
-
+        console.log('fired');
         (async () => {
             try {
                 setPendingFirstList(true);

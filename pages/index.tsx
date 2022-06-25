@@ -43,7 +43,6 @@ const Home: NextPage = () => {
 				>
 					<ThemeProvider theme={THEME}>
 						<MainFrame>
-
 							{comicsInformations.comicSelected.id && comicsInformations.comicSelectedDetails.bdImage ? <Tadpole /> : <Andromeda />}
 						</MainFrame >
 					</ThemeProvider>

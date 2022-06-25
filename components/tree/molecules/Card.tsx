@@ -70,7 +70,7 @@ const Card: React.FC<TCard> = ({ image: { src }, dateSentence, informationCard }
 	const { viewPort } = React.useContext(ViewPortChildContext);
 	return (
 		<>
-			<div className="img_card">
+			<div className="img_card" style={{ backgroundColor: loaded ? 'transparent' : "#51aabc6b" }}>
 				<Image
 					src={src ? src : `${PATH.ASSETS.IMAGES}${NAMES.IMAGE_DEFAULT}`}
 					alt={informationCard.name}
@@ -78,6 +78,7 @@ const Card: React.FC<TCard> = ({ image: { src }, dateSentence, informationCard }
 					width={`${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH}`}
 					height={`${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT}`}
 					onLoadingComplete={() => setLoaded(true)}
+
 				/>
 			</div>
 			<div className="card_data_sentence">

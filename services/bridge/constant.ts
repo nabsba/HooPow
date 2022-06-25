@@ -30,7 +30,8 @@ const PATHS_SERVER = {
 	DETAILS_COMIC: (id: string) =>
 		process.env.NEXT_PUBLIC_DEVELOPMENT === 'true'
 			? '/api/detailComic'
-			: `https://api.jsonbin.io/b/${id}`,
+			: 'https://api.jsonbin.io/b/60d15d485ed58625fd1658cb/',
+	// https://api.jsonbin.io/b/${id}`,
 	IMAGES: (id: string) =>
 		process.env.NEXT_PUBLIC_DEVELOPMENT === 'true'
 			? '/api/image'

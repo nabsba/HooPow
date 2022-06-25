@@ -4,11 +4,12 @@ import createPropsFromData from "../../../factory/createProps";
 import Image from 'next/image';
 import { css } from "@emotion/react";
 import { Card } from "../../molecules";
-import { CSSCardOriginal, CSSCardVariant1, TCard } from "../../molecules/Card";
+import { CSSCardVariant1, TCard } from "../../molecules/Card";
 import { TComicsInformations } from "../../../utils/contexts/Comics";
 
-const ComponentsSlider = (viewPortWidth: number, stateFullScreen: { doWeDiplayFullScreen: boolean }) => {
-    const componentsSliders = createPropsFromData('slidersComicImages', '');
+const ComponentsSlider = (viewPortWidth: number, stateFullScreen: { doWeDiplayFullScreen: boolean }, comicSelectedDetails: any) => {
+
+    const componentsSliders = createPropsFromData('slidersComicImages', comicSelectedDetails);
     const componentsSlide = componentsSliders.map((comp: any) => <div className="card_slide_size" css={css`
         position: relative;
         width:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).WIDTH}px !important;

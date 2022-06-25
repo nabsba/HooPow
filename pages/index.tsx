@@ -19,9 +19,10 @@ const Home: NextPage = () => {
 		getNewListComics,
 		handleComicsInformations,
 		pendingFirstList,
-		pendingNewList,
+		pending,
 		errorServer,
 	} = ComicsParentContext();
+
 	return (
 		<div>
 			<Head>
@@ -30,22 +31,23 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main data-testid="home-page-test" className="flex" css={base}>
-				<ThemeProvider theme={THEME}>
-					<MainFrame>
-						<ComicsChildContext.Provider
-							value={{
-								comicsInformations,
-								getNewListComics,
-								pendingFirstList,
-								handleComicsInformations,
-								pendingNewList,
-								errorServer
-							}}
-						>
-							{comicsInformations.comicSelected.id ? <Tadpole /> : <Andromeda />}
-						</ComicsChildContext.Provider>
-					</MainFrame >
-				</ThemeProvider>
+				<ComicsChildContext.Provider
+					value={{
+						comicsInformations,
+						getNewListComics,
+						pendingFirstList,
+						handleComicsInformations,
+						pending,
+						errorServer
+					}}
+				>
+					<ThemeProvider theme={THEME}>
+						<MainFrame>
+							{comicsInformations.comicSelected.id ? comicsInformations.comicSelectedDetails.bdImage ? <Tadpole /> : <h1> loading</h1> : <Andromeda />}
+
+						</MainFrame >
+					</ThemeProvider>
+				</ComicsChildContext.Provider>
 			</main>
 		</div>
 	);

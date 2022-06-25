@@ -9,8 +9,9 @@ import getIcon from '../atoms/icons/Icons';
 const BurgerPlusHooPowTitle: React.FC<any> = ({ handleBurgerOnClick, stateBurger }) => {
     const { viewPort } = useContext(ViewPortChildContext);
     const CSStitle: any = css`
+    svg {
 	width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_SMALL(viewPort.width).WIDTH}px;
-	height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_SMALL(viewPort.width).HEIGHT}px;`;
+	height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_SMALL(viewPort.width).HEIGHT}px;}`;
 
     const CSSwrapper: any = css`
 	width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BURGER_PLUS_TITLE_HOO_POW(viewPort.width).WIDTH}px;

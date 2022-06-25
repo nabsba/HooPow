@@ -20,17 +20,17 @@ const Tadpole: React.FC = ({ }) => {
     const { handleStateFullScreen, stateFullScreen } = FullScreenParentContext();
     const { viewPort } = React.useContext(ViewPortChildContext);
     const { comicsInformations,
-        getNewListComics, pendingFirstList, pendingNewList, handleComicsInformations } = React.useContext(ComicsChildContext);
+        getNewListComics, pending, handleComicsInformations, errorServer } = React.useContext(ComicsChildContext);
+
     const { scrollRef } = RetrieveComicsOnScrolling(comicsInformations, getNewListComics);
     const { componentsCards, componentsCardsOnLoad } = ComponentsCards(viewPort.width, handleComicsInformations, comicsInformations);
-    const { componentsSlide } = ComponentsSlider(viewPort.width, stateFullScreen)
+    const { componentsSlide } = ComponentsSlider(viewPort.width, stateFullScreen, comicsInformations.comicSelectedDetails)
     const card = createPropsFromData('card', comicsInformations.comicSelected);
     const theme: any = useTheme();
     const { annonce, mainAnnonce, userMenu } = dataCommon.fr;
     const { handleSlider, contextSlider } = SlideParentContext();
     const isItTheLastSlide =
         contextSlider.oldSlide + 1 === componentsSlide.length;
-
     const base = css`
     height:100%;
     width:100%;
@@ -58,8 +58,6 @@ const Tadpole: React.FC = ({ }) => {
         
     }
     `
-
-
     return (<>
         <FullScreenChildContext.Provider value={{
             handleStateFullScreen,
@@ -72,25 +70,27 @@ const Tadpole: React.FC = ({ }) => {
                     {contextSlider.oldSlide > 0 ? <TadpoleLeftSideChildV2 /> : <TadpoleLeftSideChildV1 card={card} viewPortWidth={viewPort.width} mainAnnonce={mainAnnonce} />}
                 </LeftSideFrame>
                 <RightSideFrame>
-                    <FullScreenComponent>
-                        <div css={base}>
-                            <div className="tadpole_slider">
-                                <SliderComponent Components={componentsSlide} wiewPortWidth={viewPort.width} />
+                    {errorServer ? <h1> Your error component</h1> :
+                        <FullScreenComponent>
+                            <div css={base}>
+                                <div className="tadpole_slider">
+                                    <SliderComponent Components={componentsSlide} wiewPortWidth={viewPort.width} />
+                                </div>
+                                {!isItTheLastSlide && !stateFullScreen.doWeDiplayFullScreen && <CSSAnnonceVariant
+                                    viewPortWidth={viewPort.width}
+                                    background={theme.COLORS.PRIMARY}>
+                                    <AnnonceSmall {...annonce} />
+                                </CSSAnnonceVariant>}
+                                {isItTheLastSlide && <div className="gallery_wrapper" ref={scrollRef} css={css`position: absolute; top: 3%; right: 0; overflow: auto; right: 3%;`}>
+                                    <CSSGaleryColumn viewPortWidth={viewPort.width}>
+                                        <Gallery componentsHTML={pending ? componentsCardsOnLoad : componentsCards} />
+                                        {pending && <Gallery componentsHTML={componentsCardsOnLoad} />}
+                                    </CSSGaleryColumn>
+                                </div>
+                                }
                             </div>
-                            {!isItTheLastSlide && !stateFullScreen.doWeDiplayFullScreen && <CSSAnnonceVariant
-                                viewPortWidth={viewPort.width}
-                                background={theme.COLORS.PRIMARY}>
-                                <AnnonceSmall {...annonce} />
-                            </CSSAnnonceVariant>}
-                            {isItTheLastSlide && <div className="gallery_wrapper" ref={scrollRef} css={css`position: absolute; top: 3%; right: 0; overflow: auto; right: 3%;`}>
-                                <CSSGaleryColumn viewPortWidth={viewPort.width}>
-                                    <Gallery componentsHTML={pendingFirstList ? componentsCardsOnLoad : componentsCards} />
-                                    {pendingNewList && <Gallery componentsHTML={componentsCardsOnLoad} />}
-                                </CSSGaleryColumn>
-                            </div>
-                            }
-                        </div>
-                    </FullScreenComponent>
+                        </FullScreenComponent>
+                    }
 
                 </RightSideFrame>
             </SlideChildContext.Provider>

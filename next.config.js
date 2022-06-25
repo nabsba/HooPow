@@ -4,6 +4,10 @@ const nextConfig = {
   images: {
     domains: ['d2hkgoif6etp77.cloudfront.net'],
   },
+  experimental: {
+    // Enables the styled-components SWC transform
+    styledComponents: true
+  }
 }
 
 module.exports = nextConfig

@@ -16,61 +16,57 @@ const UserMenu: React.FC<TUserMenu> = ({ top, middle, bottom }) => {
     const base = css`
      margin: 2vh;
      .top_user_menu {
-        button {
-           margin-top:2vh;          
-            &:first-child {
-                margin-top:0vh;
+                button {
+                margin-top:2vh;          
+                    &:first-type {
+                        margin-top:0vh;
+                        }
                 }
-        }
-        background-color: white;
-     }
+                background-color: white;
+            }
      .middle_user_menu {
-        div {
-            margin-top: 2vh; 
-            &:first-child {
-                margin-top: 0vh; 
-            }
-        }
-     
-     }
-        .user_menu_separator {
-      margin-top:2vh;
-      margin-bottom:2vh;
-      height: 2px;
-      background-color: #e6e6e6;
-     }
+                div {
+                    margin-top: 2vh; 
+                    &:first-type {
+                        margin-top: 0vh; 
+                    }
+                }
+     .user_menu_separator {
+                    margin-top:2vh;
+                    margin-bottom:2vh;
+                    height: 2px;
+                    background-color: #e6e6e6;
+                    }
      .bottom_user_menu {
-        button {
-            span {
-                color:grey;
-            }
-            margin-top: 2vh;    
-            &:first-child {
-                background-color:#e6e6e6;
-                margin-top:0;
-                
-              
-                }       
-         }
-      
+                    button {
+                        span {
+                            color:grey;
+                        }
+                        margin-top: 2vh;    
+                        &:first-type {
+                            background-color:#e6e6e6;
+                            margin-top:0;
+                            
+                            }       
+                    }   
      }
  `
     return (
         <div className='user_menu_wrapper' css={base}>
             <div className="flex_column_center top_user_menu">
-                {top.map((element => <CSSButtonMenu viewPortWidth={viewPort.width}> <ButtonV2 text={element} /></CSSButtonMenu>))}
+                {top.map(((element, index) => <CSSButtonMenu key={index} viewPortWidth={viewPort.width}> <ButtonV2 text={element} /></CSSButtonMenu>))}
             </div>
             <div className="user_menu_separator" />
             <div className="middle_user_menu">
-                {middle.map(element => <>
-                    <CSSButtonIcon viewPortWidth={viewPort.width}>
+                {middle.map((element, index) =>
+                    <CSSButtonIcon key={element.icon} viewPortWidth={viewPort.width}>
                         <ButtonV2 text={element.text} icon={element.icon} />
                     </CSSButtonIcon>
-                </>)}
+                )}
             </div>
             <div className="user_menu_separator" />
             <div className="flex_column_center bottom_user_menu">
-                {bottom.map((element => <CSSButtonMenu viewPortWidth={viewPort.width}> <ButtonV2 text={element} /></CSSButtonMenu>))}
+                {bottom.map(((element, index) => <CSSButtonMenu viewPortWidth={viewPort.width} key={index}> <ButtonV2 text={element} /></CSSButtonMenu>))}
             </div>
         </div>
     );

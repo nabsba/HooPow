@@ -42,7 +42,7 @@ const BurgerTilteAndUserMenu: React.FC<TBurderTitleAndUserMenu> = ({
         border-radius: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.BORDER_RADIUS_15(viewPort.width)}px;
      
     }
-    & button:first-child {
+    & button:first-type {
         background-color: #363635;
        span {
         color: white;

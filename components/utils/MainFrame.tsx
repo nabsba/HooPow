@@ -13,7 +13,6 @@ const MainFrame: React.FC<TMainFrame> = ({ children }) => {
 height: 100vh;
 width: 100%;
 margin: auto;
-
 height: 100vh;
 padding:.5rem;
 `

@@ -5,7 +5,7 @@ const dataCommon = {
 			middle: [
 				{ icon: 'Mail', text: 'nous contacter' },
 				{ icon: 'Telegram', text: 'nous suivre sur telegram' },
-				{ icon: 'Linkedin', text: 'nous suivre sur telegram' },
+				{ icon: 'Linkedin', text: 'nous suivre sur linkedin' },
 			],
 			bottom: ["conditions d'utilisation", 'se déconnecter'],
 		},

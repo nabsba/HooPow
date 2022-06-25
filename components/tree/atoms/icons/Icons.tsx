@@ -8,8 +8,7 @@ const getIcon = (indice: string, props?: any): ReactElement => {
             return (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="inherit"
-                    height="inherit"
+
                     viewBox="0 0 208.251 53.505"
                 >
                     <g
@@ -60,8 +59,7 @@ const getIcon = (indice: string, props?: any): ReactElement => {
             return (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="inherit"
-                    height="inherit"
+
                     viewBox="0 0 616.468 1335.582"
 
                 >
@@ -131,8 +129,7 @@ const getIcon = (indice: string, props?: any): ReactElement => {
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     xmlnsXlink="http://www.w3.org/1999/xlink"
-                    width="inherit"
-                    height="inherit"
+
                     viewBox="0 0 187 309"
                 >
                     <defs>
@@ -166,8 +163,7 @@ const getIcon = (indice: string, props?: any): ReactElement => {
                     data-name="MUSLIM SHOW"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 325.528 146.106"
-                    width="inherit"
-                    height="inherit"
+
                 >
                     <path
                         id="Path_10204"

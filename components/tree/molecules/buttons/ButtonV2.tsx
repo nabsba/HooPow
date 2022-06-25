@@ -68,7 +68,7 @@ cursor: pointer;
 
 const ButtonV2: React.FC<TButtonV2> = ({ text, icon }) => {
     return (<>
-        {icon && <div className=" button_v2_icon flex_row_center">
+        {icon && <div className="button_v2_icon flex_row_center">
             {getIcon(icon)}
         </div>}
         <span className="police_fredoka button_v2_text"> {text}</span>

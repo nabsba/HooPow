@@ -33,27 +33,15 @@ const createPropsFromData = (type: string, data: any) => {
 			return card;
 		}
 		case 'slidersComicImages': {
-			const gallery = [
+			const sliders: any[] = [];
+			data.bdImage.map((comic: any) => sliders.push(
 				{
 					image: {
-						src: PATHS_SERVER.IMAGES('images/MSHOW_01_ADDITION_01.jpg'),
+						src: PATHS_SERVER.IMAGES(comic.bdImageFr),
 					},
-					informationCard: data,
-				},
-				{
-					image: {
-						src: PATHS_SERVER.IMAGES('images/MSHOW_01_ADDITION_01.jpg'),
-					},
-					informationCard: data,
-				},
-				{
-					image: {
-						src: PATHS_SERVER.IMAGES('images/MSHOW_01_ADDITION_01.jpg'),
-					},
-					informationCard: data,
-				},
-			];
-			return gallery;
+					informationCard: comic,
+				}))
+			return sliders;
 		}
 		default:
 			return data;

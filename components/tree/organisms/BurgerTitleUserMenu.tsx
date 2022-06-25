@@ -23,6 +23,7 @@ const BurgerTilteAndUserMenu: React.FC<TBurderTitleAndUserMenu> = ({
     .menu_wrapper {
         margin-top:1rem;
         position: absolute;
+        z-index:100;
         width:93%;
         left:0;
         background-color: white;

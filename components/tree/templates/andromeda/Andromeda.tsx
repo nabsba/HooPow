@@ -30,8 +30,9 @@ const Andromeda: React.FC<Props> = () => {
      width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_CHARACTER(viewPort.width).WIDTH}px;
     size: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_CHARACTER(viewPort.width).HEIGHT}px;
     position: fixed;
-    top: -11%;
-    right: -20%;`;
+     right: -${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.POSITION_MAIN_CHARACTER(viewPort.width).RIGHT}px;
+     top: -${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.POSITION_MAIN_CHARACTER(viewPort.width).TOP}px;
+    `;
 
     return (
         <>

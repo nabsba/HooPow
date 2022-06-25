@@ -8,15 +8,14 @@ type TMainFrame = {
 }
 // height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_SIDE_HEIGHT(viewPort.width)}px;
 const MainFrame: React.FC<TMainFrame> = ({ children }) => {
-
   const { handleViewPortInformations, viewPort } = ViewPortParentContext();
   const base: any = css`
 height: 100vh;
-height: ${viewPort.width > 790 ? '100vh' : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_SIDE_HEIGHT(viewPort.width)}px;
 width: 100%;
 margin: auto;
+height: 100vh;
 padding:.5rem;
-
+height:${viewPort.width > 790 ? '100vh' : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_SIDE_HEIGHT(viewPort.width)}px;
 `
 
   return (<div className="flex"

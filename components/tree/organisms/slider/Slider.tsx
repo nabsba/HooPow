@@ -24,7 +24,7 @@ const SliderComponent: React.FC<TSlider> = ({ Components, wiewPortWidth }) => {
      width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).WIDTH}px;
      height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).HEIGHT}px;
      position:relative;
-     left: -70%;
+     left: -${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).SPACE}px;
 }
 }
   .slider_arrow_next {
@@ -37,7 +37,7 @@ const SliderComponent: React.FC<TSlider> = ({ Components, wiewPortWidth }) => {
                  width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).WIDTH}px;
                  height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).HEIGHT}px;
                  position:relative;
-                 right: -70%;
+                 right: -${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_ARROW(wiewPortWidth).SPACE}px;
  }
 }
   .slides_wrapper {

@@ -120,7 +120,8 @@ const SIZE_XD_DEFAULT = {
     },
     ICON_ARROW: {
         WIDTH: 86,
-        HEIGHT: 86
+        HEIGHT: 86,
+        SPACE: 70
 
     },
     DOT_SLIDER: {
@@ -198,7 +199,8 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
     ICON_ARROW: (actualViewPortWidth: number) => {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_ARROW.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
-            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_ARROW.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_ARROW.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            SPACE: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_ARROW.SPACE / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
         }
     },
     CARD: (actualViewPortWidth: number) => {

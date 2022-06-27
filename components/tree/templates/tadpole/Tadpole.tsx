@@ -82,7 +82,7 @@ const Tadpole: React.FC = ({ }) => {
                                     background={theme.COLORS.PRIMARY}>
                                     <AnnonceSmall {...annonce} />
                                 </CSSAnnonceVariant>}
-                                {isItTheLastSlide && <div className="gallery_wrapper" ref={scrollRef} css={css`position: absolute; top: 3%; right: 0; overflow: auto; right: 3%;`}>
+                                {isItTheLastSlide && !stateFullScreen.doWeDiplayFullScreen && <div className="gallery_wrapper" ref={scrollRef} css={css`position: absolute; top: 3%; right: 0; overflow: auto; right: 3%;`}>
                                     <CSSGaleryColumn viewPortWidth={viewPort.width}>
                                         <Gallery componentsHTML={pending ? componentsCardsOnLoad : componentsCards} />
                                         {pending && <Gallery componentsHTML={componentsCardsOnLoad} />}

@@ -29,7 +29,7 @@ const Andromeda: React.FC<Props> = () => {
     const CSSstyleMainCharacter = css`
      width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_CHARACTER(viewPort.width).WIDTH}px;
     size: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_CHARACTER(viewPort.width).HEIGHT}px;
-    position: fixed;
+    position: absolute;
      right: -${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.POSITION_MAIN_CHARACTER(viewPort.width).RIGHT}px;
      top: -${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.POSITION_MAIN_CHARACTER(viewPort.width).TOP}px;
     `;

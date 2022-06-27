@@ -9,8 +9,6 @@ type TMainFrame = {
 // height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.MAIN_SIDE_HEIGHT(viewPort.width)}px;
 const MainFrame: React.FC<TMainFrame> = ({ children }) => {
   const { handleViewPortInformations, viewPort } = ViewPortParentContext();
-  console.log(viewPort.height, 'viewPortHeight')
-  console.log(viewPort.width, 'viewPortWidth')
   const base: any = css`
 width:${viewPort.width}px;
 margin: auto;

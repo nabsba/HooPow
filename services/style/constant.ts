@@ -140,8 +140,8 @@ const SIZE_XD_DEFAULT = {
         HEIGHT: 1182
     },
     POSITION_MAIN_CHARACTER: {
-        TOP: 74,
-        RIGHT: 343
+        TOP: 80,
+        RIGHT: 365
     },
     POSITION_GALLERY_ROW_TOP: {
         TOP: 84

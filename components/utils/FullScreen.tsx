@@ -23,8 +23,8 @@ const FullScreenComponent: React.FC<Props> = ({ children }) => {
   .fullscreen_icon {
 	cursor: pointer;
 	position: absolute; 
-	bottom: 2rem;
-    left: 10vw;
+	bottom: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_FULLSCREEN(viewPort.width).SPACE_BOTTOM}px;
+    left:  ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_FULLSCREEN(viewPort.width).SPACE}px;
 	zIndex: 100;
 	width: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_FULLSCREEN(viewPort.width).WIDTH}px;
 	height: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.ICON_FULLSCREEN(viewPort.width).HEIGHT}px;

@@ -134,7 +134,9 @@ const SIZE_XD_DEFAULT = {
     },
     ICON_FULLSCREEN: {
         WIDTH: 104.87,
-        HEIGHT: 104.87
+        HEIGHT: 104.87,
+        SPACE: 116,
+        BOTTOM: 18
     },
     CARD_FULL_SCREEN: {
         WIDTH: 1182,
@@ -169,7 +171,9 @@ const SIZE_ELEMENTS_ACTUAL_VIEW_PORT = {
     ICON_FULLSCREEN: (actualViewPortWidth: number) => {
         return {
             WIDTH: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_FULLSCREEN.WIDTH / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
-            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_FULLSCREEN.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH)
+            HEIGHT: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_FULLSCREEN.HEIGHT / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            SPACE: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_FULLSCREEN.SPACE / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
+            SPACE_BOTTOM: actualViewPortWidth * (SIZE_XD_DEFAULT.ICON_FULLSCREEN.BOTTOM / SIZE_XD_DEFAULT.MAIN_SIDE_FRAME_WIDTH),
         }
     },
     CARD_ON_ONE_COLUMN: (actualViewPortWidth: number) => {

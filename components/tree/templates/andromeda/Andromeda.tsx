@@ -47,7 +47,7 @@ const Andromeda: React.FC<Props> = () => {
                 <div className="andromeda_main_component" ref={scrollRef} css={CSSstyleMainComponent}>
                     {errorServer ? <h1> This is a custom component during an error</h1> : pendingFirstList && componentsCards.length == 0 ? <h1 style={{ color: 'white', marginLeft: '1rem' }}>loading</h1> : <CSSGaleryRows viewPortWidth={viewPort.width}>
                         <Gallery componentsHTML={componentsCards} />
-                        {/* fetch on scroll */}
+
                         {pending && <Gallery componentsHTML={componentsCardsOnLoad} />}
                     </CSSGaleryRows>}
                 </div>

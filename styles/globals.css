@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Avenir';
+  src: url('../public/assets/fonts/avenir_ff/AvenirLTStd-Black.otf');
+  font-weight: 400;
+  font-style: normal;
+}
+
 html,
 body {
   padding: 0;
@@ -13,4 +20,99 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* Display */
+.flex {
+  display: flex;
+}
+
+.flex_row_center {
+  display: flex;
+  align-items: center;
+}
+
+.flex_row_full_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ;
+}
+
+.flex_row_center_between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex_column_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex_column_center_between {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex_column_center_around {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex_column_center_end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Size */
+
+.full_size {
+  height: 100%;
+  width: 100%;
+}
+
+.max_content_size {
+  width: max-content;
+}
+
+/* Margin */
+.margin_auto {
+  margin: auto;
+}
+
+/* Typography */
+
+.police_bilo {
+  font-family: 'bilo', sans-serif
+}
+
+.police_baloo {
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  font-weight: normal;
+}
+
+.police_inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.police_avenir {
+  font-family: 'Avenir';
+}
+
+.police_fredoka {
+  font-family: 'Fredoka One', cursive;
+
 }

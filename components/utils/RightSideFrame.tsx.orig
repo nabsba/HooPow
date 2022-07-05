@@ -1,0 +1,238 @@
+import { css } from '@emotion/react';
+import * as React from 'react';
+import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../services';
+import { TTheme } from '../../services/style/type';
+import { ViewPortChildContext } from './contexts/ViewPort';
+
+type TRightSideFrame = { children: any }
+
+
+
+
+const RightSideFrame: React.FC<TRightSideFrame> = ({ children }) => {
+  const { viewPort } = React.useContext(ViewPortChildContext);
+<<<<<<< HEAD
+  const componentsCards = [
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>, <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>, <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>, <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: ''
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>, <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>, <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />,
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>,
+    <CSSCardOriginal styleCSS={{ width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD(viewPort.width).HEIGHT, sizeImg: { width: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).WIDTH, height: SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_IMAGE(viewPort.width).HEIGHT } }} >
+      <Card image={{
+        src: 'MSHOW_05_AUMONE.webp'
+      }} dateSentence={{
+        date: 'lundi 01',
+        sentence: 'hello'
+      }} id={''} />
+    </CSSCardOriginal>]
+=======
+>>>>>>> 5719c45 (feat(Andromeda.tsx): add component)
+
+  const base: any = (props: TTheme) => css`
+   border-radius: 5px;
+   flex-basis: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.RIGHT_SIDE_FRAME(viewPort.width)}px;
+   background-color: ${props.COLORS.SECONDARY};`
+  return (<div
+    css={base} >
+    {children} </div>)
+
+}
+export default RightSideFrame

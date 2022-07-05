@@ -1,0 +1,42 @@
+.burger {
+    padding: .2rem;
+    display: flex;
+    background-color: white;
+}
+
+.sub_burger {
+    width: auto;
+}
+
+.burger span {
+    transition: transform .35s ease-in-out, -webkit-transform .35s ease-in-out;
+    display: block;
+    margin: auto;
+    width: 100%;
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.wrapper_twins_spans {
+    position: relative;
+
+}
+
+.wrapper_twins_spans span {
+    position: absolute;
+}
+
+/* Effect cross */
+.burger_open .span_first,
+.burger_open .span_last {
+    opacity: 0;
+}
+
+.burger_open .wrapper_twins_spans span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.burger_open .wrapper_twins_spans span:nth-child(2) {
+    transform: rotate(-45deg);
+}

@@ -1,11 +1,11 @@
 import { css, ThemeProvider } from '@emotion/react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Tadpole } from '../components/tree/templates';
-import Andromeda from '../components/tree/templates/andromeda/Andromeda';
+import dynamic from 'next/dynamic'
 import { MainFrame } from '../components/utils';
 import ComicsParentContext, { ComicsChildContext } from '../components/utils/contexts/Comics';
 import { THEME } from '../services';
+import { Suspense } from 'react'
 
 
 
@@ -22,6 +22,18 @@ const Home: NextPage = () => {
 		pending,
 		errorServer,
 	} = ComicsParentContext();
+
+
+	const Andromeda = dynamic(() => import('../components/tree/templates/andromeda/Andromeda'), {
+		suspense: true,
+
+	})
+	const Tadpole = dynamic(() => import('../components/tree/templates/tadpole/Tadpole'), {
+		suspense: true,
+		ssr: false,
+	})
+
+
 	return (
 		<div>
 			<Head>
@@ -42,7 +54,9 @@ const Home: NextPage = () => {
 				>
 					<ThemeProvider theme={THEME}>
 						<MainFrame>
-							{comicsInformations.comicSelected.id ? comicsInformations.comicSelectedDetails.bdImage ? <Tadpole /> : <h1> loading </h1> : <Andromeda />}
+							<Suspense fallback={`Loading...`}>
+								{comicsInformations.comicSelected.id ? comicsInformations.comicSelectedDetails.bdImage ? <Tadpole /> : <h1> loading </h1> : <Andromeda />}
+							</Suspense>
 						</MainFrame >
 					</ThemeProvider>
 				</ComicsChildContext.Provider>

@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { Profiler, useContext } from 'react';
 import { css } from '@emotion/react'
 import Gallery, { CSSGaleryRows } from '../../organisms/Gallery';
 import dataCommon from '../../../../services/data/common';
 import { LeftSideFrame, RightSideFrame } from '../../../utils';
-import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../../../services';
+import { metricsPerformence, SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../../../services';
 import getIcon from '../../atoms/icons/Icons';
 import { LeftV211 } from '../../organisms';
 import { ViewPortChildContext } from '../../../utils/contexts/ViewPort';
@@ -49,11 +49,13 @@ const Andromeda: React.FC<Props> = () => {
     const RightSideFrameChild = <> <div className="andromeda_main_component" ref={scrollRef} css={CSSstyleMainComponent(viewPort)}>
         {/* {errorServer ? <h1> This is a custom component during an error</h1> : pendingFirstList && componentsCards.length == 0 ? <h1 style={{ color: 'white', marginLeft: '1rem' }}>loading</h1> : <CSSGaleryRows viewPortWidth={viewPort.width}> */}
         <CSSGaleryRows viewPortWidth={viewPort.width}>
-            <GalleryOfComics
-                isErrorServer={errorServer}
-                isLoading={pendingFirstList && componentsCards.length == 0}
-                componentsHTML={componentsCards}
-            />
+            <Profiler id="Mesure data loading" onRender={metricsPerformence}>
+                <GalleryOfComics
+                    isErrorServer={errorServer}
+                    isLoading={pendingFirstList && componentsCards.length == 0}
+                    componentsHTML={componentsCards}
+                />
+            </Profiler>
         </CSSGaleryRows>
     </div>
         <div className={'position_character'} css={CSSstyleMainCharacter(viewPort)}>

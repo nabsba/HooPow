@@ -36,6 +36,7 @@
     "@types/react-slick": "^0.23.8",
     "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@welldone-software/why-did-you-render": "^7.0.1",
     "babel-jest": "^28.1.1",
     "eslint": "8.17.0",
     "eslint-config-next": "12.1.6",

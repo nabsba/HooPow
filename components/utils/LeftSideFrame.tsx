@@ -24,4 +24,4 @@ const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children, userMenu }) => {
         {children} </div>)
 
 }
-export default LeftSideFrame
+export default React.memo(LeftSideFrame)

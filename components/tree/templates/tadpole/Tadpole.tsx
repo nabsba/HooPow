@@ -14,6 +14,7 @@ import { RetrieveComicsOnScrolling } from '../andromeda/utils';
 import SlideParentContext, { SlideChildContext } from '../../../utils/contexts/Slider';
 import createPropsFromData from '../../../factory/createProps';
 import FullScreenComponent from '../../../utils/FullScreen';
+import CompositionFrames from '../../../utils/CompositionFrames';
 
 
 const Tadpole: React.FC = ({ }) => {
@@ -31,32 +32,57 @@ const Tadpole: React.FC = ({ }) => {
     const isItTheLastSlide =
         contextSlider.oldSlide + 1 === componentsSlide.length;
     const base = css`
-    height:100%;
-    width:100%;
-    .tadpole_slider {
-        display: flex;
-        height: 100%;
-         .slick-dots {
-            display: ${stateFullScreen.doWeDiplayFullScreen ? 'none' : 'block'};
+        height:100%;
+        width:100%;
+        .tadpole_slider {
+            display: flex;
+            height: 100%;
+             .slick-dots {
+                display: ${stateFullScreen.doWeDiplayFullScreen ? 'none' : 'block'};
+            }
+            .slides_wrapper {
+            margin:auto;
+             width:${stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPort.width).WIDTH : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPort.width).WIDTH}px !important;
+             height:${stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPort.width).HEIGHT : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPort.width).HEIGHT}px;
+            }
+            .card_slide_size {
+                width:${stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPort.width).WIDTH : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPort.width).WIDTH}px !important;
+                height:${stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPort.width).HEIGHT : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPort.width).HEIGHT}px;
         }
-        .slides_wrapper {
-        margin:auto;
-         width:${stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPort.width).WIDTH : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPort.width).WIDTH}px !important;
-         height:${stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPort.width).HEIGHT : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPort.width).HEIGHT}px;
         }
-        .card_slide_size {
-            width:${stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPort.width).WIDTH : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPort.width).WIDTH}px !important;
-            height:${stateFullScreen.doWeDiplayFullScreen ? SIZE_ELEMENTS_ACTUAL_VIEW_PORT.CARD_FULL_SCREEN(viewPort.width).HEIGHT : SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPort.width).HEIGHT}px;
-    }
-    }
-    .gallery_wrapper { 
-        height: 100vh;
-    }
-    .slide_wrapper {
-        width: ${stateFullScreen.doWeDiplayFullScreen ? '1182' : 'auto'}
-        
-    }
-    `
+        .gallery_wrapper { 
+            height: 100vh;
+        }
+        .slide_wrapper {
+            width: ${stateFullScreen.doWeDiplayFullScreen ? '1182' : 'auto'}
+            
+        }
+        `
+
+    const LeftSideFrameChildComponent = contextSlider.oldSlide > 0 ? <TadpoleLeftSideChildV2 /> : <TadpoleLeftSideChildV1 card={card} viewPortWidth={viewPort.width} mainAnnonce={mainAnnonce} />
+    const RightSideFrameChildComponent = errorServer ? <h1> Your error component</h1> :
+        <FullScreenComponent>
+            <div css={base}>
+                {componentsSlide.length && componentsSlide.length > 0 ?
+                    <div className="tadpole_slider">
+                        <SliderComponent Components={componentsSlide} wiewPortWidth={viewPort.width} />
+                    </div> : <h1> loading</h1>
+                }
+                {!isItTheLastSlide && !stateFullScreen.doWeDiplayFullScreen && <CSSAnnonceVariant
+                    viewPortWidth={viewPort.width}
+                    background={theme.COLORS.PRIMARY}>
+                    <AnnonceSmall {...annonce} />
+                </CSSAnnonceVariant>}
+                {isItTheLastSlide && !stateFullScreen.doWeDiplayFullScreen && <div className="gallery_wrapper" ref={scrollRef} css={css`position: absolute; top: 3%; right: 0; overflow: auto; right: 3%;`}>
+                    <CSSGaleryColumn viewPortWidth={viewPort.width}>
+                        <Gallery componentsHTML={pending ? componentsCardsOnLoad : componentsCards} />
+                        {pending && <Gallery componentsHTML={componentsCardsOnLoad} />}
+                    </CSSGaleryColumn>
+                </div>
+                }
+            </div>
+        </FullScreenComponent>
+
     return (<>
         <FullScreenChildContext.Provider value={{
             handleStateFullScreen,
@@ -65,35 +91,16 @@ const Tadpole: React.FC = ({ }) => {
             <SlideChildContext.Provider value={{
                 handleSlider, contextSlider
             }}>
-                <LeftSideFrame userMenu={userMenu}>
-                    {contextSlider.oldSlide > 0 ? <TadpoleLeftSideChildV2 /> : <TadpoleLeftSideChildV1 card={card} viewPortWidth={viewPort.width} mainAnnonce={mainAnnonce} />}
-                </LeftSideFrame>
-                <RightSideFrame>
-                    {errorServer ? <h1> Your error component</h1> :
-                        <FullScreenComponent>
-                            <div css={base}>
-                                {componentsSlide.length && componentsSlide.length > 0 ?
-                                    <div className="tadpole_slider">
-                                        <SliderComponent Components={componentsSlide} wiewPortWidth={viewPort.width} />
-                                    </div> : <h1> loading</h1>
-                                }
-                                {!isItTheLastSlide && !stateFullScreen.doWeDiplayFullScreen && <CSSAnnonceVariant
-                                    viewPortWidth={viewPort.width}
-                                    background={theme.COLORS.PRIMARY}>
-                                    <AnnonceSmall {...annonce} />
-                                </CSSAnnonceVariant>}
-                                {isItTheLastSlide && !stateFullScreen.doWeDiplayFullScreen && <div className="gallery_wrapper" ref={scrollRef} css={css`position: absolute; top: 3%; right: 0; overflow: auto; right: 3%;`}>
-                                    <CSSGaleryColumn viewPortWidth={viewPort.width}>
-                                        <Gallery componentsHTML={pending ? componentsCardsOnLoad : componentsCards} />
-                                        {pending && <Gallery componentsHTML={componentsCardsOnLoad} />}
-                                    </CSSGaleryColumn>
-                                </div>
-                                }
-                            </div>
-                        </FullScreenComponent>
-                    }
+                <CompositionFrames
+                    leftSideFrameProps={{
+                        userMenu, childComponent: LeftSideFrameChildComponent
+                    }}
 
-                </RightSideFrame>
+                    rightSideFrameProps={{
+                        childComponent: RightSideFrameChildComponent
+                    }}
+                />
+
             </SlideChildContext.Provider>
         </FullScreenChildContext.Provider>
     </>)

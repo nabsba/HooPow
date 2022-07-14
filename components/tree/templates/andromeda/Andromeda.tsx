@@ -10,6 +10,7 @@ import { ViewPortChildContext } from '../../../utils/contexts/ViewPort';
 import { ComicsChildContext } from '../../../utils/contexts/Comics';
 import { ComponentsCards, RetrieveComicsOnScrolling } from './utils';
 import ComponentWithLogicDataFetching from '../../../utils/higherOrderComponents/ComponentWithLogicDataFetching';
+import CompositionFrames from '../../../utils/CompositionFrames';
 
 
 type Props = any;
@@ -43,32 +44,39 @@ const Andromeda: React.FC<Props> = () => {
     const { componentsCards, componentsCardsOnLoad } = ComponentsCards(viewPort.width, handleComicsInformations, comicsInformations);
     const { scrollRef } = RetrieveComicsOnScrolling(comicsInformations, getNewListComics);
     const GalleryOfComics = ComponentWithLogicDataFetching(Gallery);
-    return (
-        <>
 
-            <LeftSideFrame userMenu={userMenu}>
-                <LeftV211
+
+    const RightSideFrameChild = <> <div className="andromeda_main_component" ref={scrollRef} css={CSSstyleMainComponent(viewPort)}>
+        {/* {errorServer ? <h1> This is a custom component during an error</h1> : pendingFirstList && componentsCards.length == 0 ? <h1 style={{ color: 'white', marginLeft: '1rem' }}>loading</h1> : <CSSGaleryRows viewPortWidth={viewPort.width}> */}
+        <CSSGaleryRows viewPortWidth={viewPort.width}>
+            <GalleryOfComics
+                isErrorServer={errorServer}
+                isLoading={pendingFirstList && componentsCards.length == 0}
+                componentsHTML={componentsCards}
+            />
+        </CSSGaleryRows>
+    </div>
+        <div className={'position_character'} css={CSSstyleMainCharacter(viewPort)}>
+            {getIcon('Main_character')}
+        </div>
+    </>
+    return (
+
+        <CompositionFrames
+            leftSideFrameProps={{
+                userMenu, childComponent: <LeftV211
                     annonce={annonce}
                     iconTitle={iconTitle}
-                    mainAnnonce={mainAnnonce}
-                />
-            </LeftSideFrame>
-            <RightSideFrame>
-                <div className="andromeda_main_component" ref={scrollRef} css={CSSstyleMainComponent(viewPort)}>
-                    {/* {errorServer ? <h1> This is a custom component during an error</h1> : pendingFirstList && componentsCards.length == 0 ? <h1 style={{ color: 'white', marginLeft: '1rem' }}>loading</h1> : <CSSGaleryRows viewPortWidth={viewPort.width}> */}
-                    <CSSGaleryRows viewPortWidth={viewPort.width}>
-                        <GalleryOfComics
-                            isErrorServer={errorServer}
-                            isLoading={pendingFirstList && componentsCards.length == 0}
-                            componentsHTML={componentsCards}
-                        />
-                    </CSSGaleryRows>
-                </div>
-                <div className={'position_character'} css={CSSstyleMainCharacter(viewPort)}>
-                    {getIcon('Main_character')}
-                </div>
-            </RightSideFrame>
-        </>
+                    mainAnnonce={mainAnnonce} />
+            }}
+
+            rightSideFrameProps={{
+                childComponent: RightSideFrameChild
+            }}
+        />
+
+
+
 
     );
 };

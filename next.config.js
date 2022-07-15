@@ -7,7 +7,15 @@ const nextConfig = {
   compiler: {
     // Enables the styled-components SWC transform
     styledComponents: true
-  }
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/about',
+        destination: '/',
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

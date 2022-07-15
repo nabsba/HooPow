@@ -18,7 +18,7 @@ const UserMenu: React.FC<TUserMenu> = ({ top, middle, bottom }) => {
      .top_user_menu {
                 button {
                 margin-top:2vh;          
-                 &:first-child {
+                 &:first-type {
                     span {
                         color:white;
                     }

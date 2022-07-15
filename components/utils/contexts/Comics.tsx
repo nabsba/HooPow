@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { TComic } from '../../../services/data/type';
 import { logErrorAsyncMessage, logMessage } from '../../../services/common/funtions';
-import { fetchAllComics, fetchComic } from '../../../services/comics/functions';
+import { fetchAllComics } from '../../../services/comics/functions';
 
 export type TComicsInformations = {
     language: TLanguages;
     allComics: TComic[];
     comicsDisplayed: any[];
-    comicSelected: any;
-    comicSelectedDetails: any,
     totalNumberOfComicsAvailableInTheDB: number;
     numberOfPages: number;
     comicsPerPage: number;
@@ -20,7 +18,6 @@ interface ComicsContext {
     comicsInformations: TComicsInformations;
     handleComicsInformations: (data: TComicsInformations) => any;
     getNewListComics: () => any;
-    pendingFirstList: boolean;
     pending: boolean;
     errorServer: boolean;
 }
@@ -30,8 +27,6 @@ export const ComicsChildContext = React.createContext<ComicsContext>({
         language: 'fr',
         allComics: [],
         comicsDisplayed: [],
-        comicSelected: {},
-        comicSelectedDetails: {},
         totalNumberOfComicsAvailableInTheDB: 0,
         numberOfPages: 0,
         comicsPerPage: 20,
@@ -39,21 +34,18 @@ export const ComicsChildContext = React.createContext<ComicsContext>({
     },
     handleComicsInformations: (data: TComicsInformations) => data,
     getNewListComics: () => '',
-    pendingFirstList: false,
     pending: false,
     errorServer: false
 });
 
 const ComicsParentContext = () => {
-    const [pendingFirstList, setPendingFirstList] = useState(false);
+
     const [errorServer, setErrorServer] = useState(false)
     const [pending, setPending] = useState(false);
     const [comicsInformations, setComicsInformations] = useState<TComicsInformations>({
         language: 'fr',
         allComics: [],
         comicsDisplayed: [],
-        comicSelected: {},
-        comicSelectedDetails: {},
         totalNumberOfComicsAvailableInTheDB: 0,
         numberOfPages: 0,
         comicsPerPage: 20,
@@ -62,39 +54,10 @@ const ComicsParentContext = () => {
     useEffect(() => {
         const cancelToken = axios.CancelToken;
         const source = cancelToken.source();
-        const getComicDetail = async () => {
-
-            try {
-                setPending(true)
-                const comic = await fetchComic(comicsInformations.comicSelected.id);
-                if (comic) {
-                    handleComicsInformations({
-                        ...comicsInformations,
-                        comicSelectedDetails: comic
-                    })
-                } else {
-                    throw new Error("fetchComic");
-                }
-            } catch (error) {
-                setErrorServer(true)
-                logMessage(`${logErrorAsyncMessage('contexts/Comics', 'fetchComic')},
-                ${error}`);
-            }
-            finally {
-                setPending(false)
-            }
-        };
-        if (comicsInformations.comicSelected.id) getComicDetail()
-        return () => {
-            source.cancel('axios request cancelled');
-        };
-    }, [comicsInformations.comicSelected.id])
-    useEffect(() => {
-        const cancelToken = axios.CancelToken;
-        const source = cancelToken.source();
         (async () => {
             try {
-                setPendingFirstList(true);
+                console.log('fetch comics')
+                setPending(true)
                 const comics = await fetchAllComics();
                 if (comics) {
                     handleComicsInformations({
@@ -105,11 +68,11 @@ const ComicsParentContext = () => {
                         comicsDisplayed: comics.slice(0, comicsInformations.page * 20),
                         page: 1,
                     });
-                    setPendingFirstList(false);
+                    setPending(false)
                     return;
                 } else { throw new Error('fetchAllComics') }
             } catch (error) {
-                setPendingFirstList(false);
+                setPending(false)
                 setErrorServer(true)
                 logMessage(`${logErrorAsyncMessage('contexts/Comics', 'fetchComic')},
                 ${error}`);
@@ -125,7 +88,6 @@ const ComicsParentContext = () => {
             if (comicsInformations.numberOfPages > comicsInformations.page) {
                 setPending(true)
                 /* Remote */
-
                 // const lastIndex = comicsInformations.comicsDisplayed.length - 1;
                 // const idLastComic = comicsInformations.comicsDisplayed[lastIndex].id;
                 // await newListComic(id)
@@ -164,7 +126,6 @@ const ComicsParentContext = () => {
     return {
         setComicsInformations,
         comicsInformations,
-        pendingFirstList,
         getNewListComics,
         handleComicsInformations,
         pending,

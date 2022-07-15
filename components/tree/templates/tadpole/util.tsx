@@ -6,11 +6,14 @@ import { css } from "@emotion/react";
 import { Card } from "../../molecules";
 import { CSSCardVariant1, TCard } from "../../molecules/Card";
 import { TComicsInformations } from "../../../utils/contexts/Comics";
+import React from "react";
+import { ViewPortChildContext } from "../../../utils/contexts";
+import SlideParentContext from "../../../utils/contexts/Slider";
+import FullScreenParentContext from "../../../utils/contexts/FullScreen";
 
-const ComponentsSlider = (viewPortWidth: number, stateFullScreen: { doWeDiplayFullScreen: boolean }, comicSelectedDetails: any) => {
-
-    const componentsSliders = createPropsFromData('slidersComicImages', comicSelectedDetails);
-    const componentsSlide = componentsSliders.map((comp: any) => <div key={comp.name} className="card_slide_size" css={css`
+const ComponentsSlider = (viewPortWidth: number, stateFullScreen: { doWeDiplayFullScreen: boolean }, comicBDimages: any) => {
+    const componentsSliders = createPropsFromData('slidersComicImages', comicBDimages);
+    const componentsSlide = componentsSliders.map((comp: any, index: number) => <div key={index} className="card_slide_size" css={css`
         position: relative;
         width:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).WIDTH}px !important;
         height:${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.SLIDER_IMAGE(viewPortWidth).HEIGHT}px;
@@ -31,8 +34,6 @@ const ComponentsSlider = (viewPortWidth: number, stateFullScreen: { doWeDiplayFu
     </div>)
     return { componentsSlide }
 }
-const Loading = () => <span style={{ textAlign: 'center', color: 'white', textTransform: 'capitalize' }}> add a loader</span>;
-
 const ComponentsCards = (viewPortWidth: number, handleComicsInformations: any, comicsInformations: TComicsInformations) => {
     const cards = createPropsFromData('cards', comicsInformations.comicsDisplayed);
     const componentsCards = cards.map((card: TCard, index: number) =>
@@ -43,15 +44,19 @@ const ComponentsCards = (viewPortWidth: number, handleComicsInformations: any, c
             })}> <Card {...card} />
             </div>
         </CSSCardVariant1>);
-    const componentsCardsOnLoad = []
-    for (let index = 0; index < 20; index++) {
-        componentsCardsOnLoad.push(<CSSCardVariant1 viewPortWidth={viewPortWidth} >
-            <Loading />
-        </CSSCardVariant1>)
 
-    }
-    return { componentsCards, componentsCardsOnLoad }
+    return { componentsCards }
+}
+const GetAllContexts = () => {
+    const { viewPort } = React.useContext(ViewPortChildContext);
+    const { handleStateFullScreen, stateFullScreen } = FullScreenParentContext();
+    const fullScreenContext = { handleStateFullScreen, stateFullScreen }
+    const { handleSlider, contextSlider } = SlideParentContext();
+    const sliderContext = { handleSlider, contextSlider }
+
+    return { viewPort, sliderContext, fullScreenContext }
 }
 
 
-export { ComponentsSlider, ComponentsCards }
+
+export { ComponentsSlider, ComponentsCards, GetAllContexts }

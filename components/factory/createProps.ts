@@ -23,6 +23,7 @@ const createPropsFromData = (type: string, data: any) => {
 			return cards;
 		}
 		case 'card': {
+
 			const card = {
 				image: {
 					src: PATHS_SERVER.IMAGES(data.imageHomepage),
@@ -34,12 +35,13 @@ const createPropsFromData = (type: string, data: any) => {
 		}
 		case 'slidersComicImages': {
 			const sliders: any[] = [];
-			data.bdImage.map((comic: any) => sliders.push(
+
+			data.map((comic: any) => sliders.push(
 				{
 					image: {
 						src: PATHS_SERVER.IMAGES(comic.bdImageFr),
 					},
-					informationCard: comic,
+					idComic: comic.bdId,
 				}))
 			return sliders;
 		}

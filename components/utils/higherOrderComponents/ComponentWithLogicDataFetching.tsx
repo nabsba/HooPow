@@ -1,7 +1,9 @@
+import { ErrorComponent, Loading } from "../../tree/molecules";
+// eslint-disable-next-line react/display-name
 const ComponentWithLogicDataFetching = (Component: any) => (({ isErrorServer, isLoading, ...props }: any) => {
-    if (isErrorServer) return <h1> Your error server</h1>
+    if (isErrorServer) return <ErrorComponent />
     if (!isLoading) return <Component {...props} />;
-    return <p> loading</p>
+    return <Loading />
 })
 
 

@@ -10,7 +10,14 @@ export type TComic = {
     mainId: string;
     name: string;
     publicationDate: string;
-};
+    bdImage: {
+        bdId: string;
+        bdImageFr: string;
+        bdImageKey: number
+        id: string;
+        name: string;
+    };
+}
 export type TLanguages = 'fr';
 
 export type TAllComics = TComic[];

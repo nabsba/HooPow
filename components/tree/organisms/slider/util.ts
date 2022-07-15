@@ -23,10 +23,10 @@ const Util = () => {
 			});
 		},
 	};
-
 	const sliderRef: any = useRef(null);
 
 	return { sliderRef, settings };
 };
+
 
 export default Util;

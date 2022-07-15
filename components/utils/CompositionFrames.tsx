@@ -4,9 +4,7 @@ import RightSideFrame from './RightSideFrame';
 
 type TCompositionFrames = any;
 
-
 const CompositionFrames: React.FC<TCompositionFrames> = ({ leftSideFrameProps, rightSideFrameProps }) => {
-
     return (<>
         <LeftSideFrame userMenu={leftSideFrameProps.userMenu}>
             {leftSideFrameProps.childComponent}

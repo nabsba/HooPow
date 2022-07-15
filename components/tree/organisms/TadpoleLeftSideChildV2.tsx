@@ -1,9 +1,9 @@
 
 import { css } from "@emotion/react";
+import Link from "next/link";
 import React, { useContext } from "react";
-import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from "../../../services";
+import { ROUTES, SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from "../../../services";
 import createPropsFromData from "../../factory/createProps";
-import { ComicsChildContext } from "../../utils/contexts/Comics";
 import { FullScreenChildContext } from "../../utils/contexts/FullScreen";
 import { ViewPortChildContext } from "../../utils/contexts/ViewPort";
 import getIcon from "../atoms/icons/Icons";
@@ -11,12 +11,11 @@ import { Card, CSSButtonOriginal, ButtonV2 } from "../molecules";
 import { CSSCardOriginal } from "../molecules/Card";
 
 
-const TadpoleLeftSideChildV2: React.FC = () => {
+const TadpoleLeftSideChildV2: React.FC<any> = ({ comic }) => {
     const { handleStateFullScreen } = useContext(FullScreenChildContext);
-    const { comicsInformations, handleComicsInformations } = useContext(ComicsChildContext);
     const { viewPort } = React.useContext(ViewPortChildContext);
     const viewPortWidth = viewPort.width;
-    const card = createPropsFromData('card', comicsInformations.comicSelected);
+    const card = createPropsFromData('card', comic);
     const base: any = css`
     flex: 1;
     & .svg_share {
@@ -52,10 +51,12 @@ const TadpoleLeftSideChildV2: React.FC = () => {
                 </CSSButtonOriginal>
             </div>
             <div style={{ padding: '5%' }} />
-            <div onClick={() => handleComicsInformations({ ...comicsInformations, comicSelected: {} })}>
-                <CSSButtonOriginal viewPortWidth={viewPortWidth} >
-                    <ButtonV2 icon={'House'} text={'ACCEUIL'} />
-                </CSSButtonOriginal>
+            <div>
+                <Link href={ROUTES.HOME}>
+                    <CSSButtonOriginal viewPortWidth={viewPortWidth} >
+                        <ButtonV2 icon={'House'} text={'ACCEUIL'} />
+                    </CSSButtonOriginal>
+                </Link>
             </div>
         </div>
     </div >

@@ -13,7 +13,7 @@ export type TComicsInformations = {
     comicsPerPage: number;
     page: number;
 }
-type TLanguages = 'fr';
+type TLanguages = string | 'fr';
 interface ComicsContext {
     comicsInformations: TComicsInformations;
     handleComicsInformations: (data: TComicsInformations) => any;
@@ -56,7 +56,6 @@ const ComicsParentContext = () => {
         const source = cancelToken.source();
         (async () => {
             try {
-                console.log('fetch comics')
                 setPending(true)
                 const comics = await fetchAllComics();
                 if (comics) {

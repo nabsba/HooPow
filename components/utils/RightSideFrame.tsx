@@ -19,6 +19,7 @@ const RightSideFrame: React.FC<TRightSideFrame> = ({ children }) => {
    background-color: ${props.COLORS.SECONDARY};
    overflow: hidden;`
   return (<div
+    data-testid="testID-rightFrame"
     css={base}>
     {children} </div>)
 

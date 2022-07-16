@@ -24,7 +24,7 @@ const GenerateComicCardsFromDataReceived = (viewPortWidth: number, handleComicsI
     const componentsCards = cards.map((card: TCard) =>
         <Link key={card.informationCard.mainId} href={ROUTES.COMIC(card.informationCard.mainId)}>
             <CSSCardOriginal key={card.dateSentence.sentence} viewPortWidth={viewPortWidth} >
-                <div onClick={() => handleComicsInformations({
+                <div className={'card_comic'} onClick={() => handleComicsInformations({
                     ...comicsInformations,
                     comicSelected: card.informationCard
                 })}> <Card {...card} />

@@ -38,7 +38,7 @@ Then add a loader
     const { ComponentsComicCards, ComponentsComicCardsWithLogicDataFetching } = GetAllComponentsNedded();
     const { scrollRef } = RetrieveComicsOnScrolling(comicContext.comicsInformations, comicContext.getNewListComics);
 
-    const DisplayFirstFetchComics = <CSSGaleryRows viewPortWidth={viewPort.width}>
+    const DisplayFirstFetchComics = <div data-testid="testID-gallery"><CSSGaleryRows viewPortWidth={viewPort.width}>
         {/* <Profiler id="Mesure data loading" onRender={metricsPerformence}> */}
         <ComponentsComicCardsWithLogicDataFetching
             isErrorServer={comicContext.errorServer}
@@ -46,7 +46,7 @@ Then add a loader
             componentsHTML={ComponentsComicCards}
         />
         {/* </Profiler> */}
-    </CSSGaleryRows>
+    </CSSGaleryRows> </div>
 
     const RightSideFrameChild = <> <div className="andromeda_main_component" ref={scrollRef} css={CSSstyleMainComponent(viewPort)}>
         {DisplayFirstFetchComics}

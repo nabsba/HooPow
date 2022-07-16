@@ -17,7 +17,7 @@ const LeftSideFrame: React.FC<TLeftSideFrame> = ({ children, userMenu }) => {
     position:relative;
   flex-basis: ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.LEFT_SIDE_FRAME(viewPort.width)}px;
 `
-    return (<div className="flex_column_center"
+    return (<div data-testid="testID-leftFrame" className="flex_column_center"
         css={base}
     >
         <BurgerTilteAndUserMenu userMenu={userMenu} />

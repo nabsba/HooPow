@@ -39,13 +39,13 @@ Then add a loader
     const { scrollRef } = RetrieveComicsOnScrolling(comicContext.comicsInformations, comicContext.getNewListComics);
 
     const DisplayFirstFetchComics = <CSSGaleryRows viewPortWidth={viewPort.width}>
-        <Profiler id="Mesure data loading" onRender={metricsPerformence}>
-            <ComponentsComicCardsWithLogicDataFetching
-                isErrorServer={comicContext.errorServer}
-                isLoading={comicContext.pending && comicContext.comicsInformations.comicsDisplayed.length === 0}
-                componentsHTML={ComponentsComicCards}
-            />
-        </Profiler>
+        {/* <Profiler id="Mesure data loading" onRender={metricsPerformence}> */}
+        <ComponentsComicCardsWithLogicDataFetching
+            isErrorServer={comicContext.errorServer}
+            isLoading={comicContext.pending && comicContext.comicsInformations.comicsDisplayed.length === 0}
+            componentsHTML={ComponentsComicCards}
+        />
+        {/* </Profiler> */}
     </CSSGaleryRows>
 
     const RightSideFrameChild = <> <div className="andromeda_main_component" ref={scrollRef} css={CSSstyleMainComponent(viewPort)}>

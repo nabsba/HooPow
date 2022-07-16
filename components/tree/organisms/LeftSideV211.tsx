@@ -19,20 +19,25 @@ const LeftV211: React.FC<TLeftV211> = ({ annonce }) => {
     const { viewPort } = React.useContext(ViewPortChildContext);
     const theme: any = useTheme();
 
-    return (<div className="flex_column_center_between" style={{ flex: 1, paddingTop: '5%' }}>
+    return (<div data-testid="testID-announcement" className="flex_column_center_between" style={{ flex: 1, paddingTop: '5%' }}>
         <CSSAnnonceOriginal
+
             viewPortWidth={viewPort.width}
             background={theme.COLORS.PRIMARY}>
             <AnnonceSmall {...annonce} />
         </CSSAnnonceOriginal>
-        <div style={{
-            width: `${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_LARGE(viewPort.width).WIDTH}px`,
-            height: ` ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_LARGE(viewPort.width).HEIGHT}px`
-        }}>
+        <div
+            data-testid="testID-title"
+            style={{
+                width: `${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_LARGE(viewPort.width).WIDTH}px`,
+                height: ` ${SIZE_ELEMENTS_ACTUAL_VIEW_PORT.TITLE_HOO_POW_LARGE(viewPort.width).HEIGHT}px`
+            }}>
+
             {getIcon('Title_howpow_large')}
         </div>
-        <MainAnnonce {...mainAnnonce} />
-
+        <div data-testid="testID-mainAnnonce">
+            <MainAnnonce  {...mainAnnonce} />
+        </div>
     </div >)
 
 }

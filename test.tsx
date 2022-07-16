@@ -5,9 +5,13 @@ import Home from './pages';
 import { renderWithRouter } from './services';
 import { screen } from '@testing-library/react';
 
-test('init first tests to check the configuration of react test library', async () => {
+test('(home-page) elements required in the left pannel', async () => {
 	renderWithRouter(<Home />);
-	expect(await screen.findByTestId('home-page-test')).toBeInTheDocument();
-	expect(await screen.findByText('Hello hoo poww')).toBeInTheDocument();
-	expect(screen.queryByText('Right, I am not here')).toBeFalsy();
+	const annonce = await screen.findByTestId('testID-announcement');
+	const titleSVG = await screen.findByTestId('testID-title');
+	const announcement = await screen.findByTestId('testID-mainAnnonce');
+	expect(annonce).toBeInTheDocument();
+	expect(titleSVG).toBeInTheDocument();
+	expect(announcement).toBeInTheDocument();
+
 });

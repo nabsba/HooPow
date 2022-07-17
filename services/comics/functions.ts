@@ -9,7 +9,7 @@ const fetchComic = async (id: string) => {
             return result.data
         } else { throw new Error() }
     } catch (error) {
-        logMessage(`${logErrorAsyncMessage('cntexts/Comics', 'fetchAllComics')},
+        logMessage(`${logErrorAsyncMessage('contexts/Comics', 'fetchComic')},
         ${error}`);
         return false;
     }

@@ -1,10 +1,12 @@
 import { PATHS_SERVER } from "../bridge/constant";
-import { serverGet } from "../bridge/requestServer";
+import { optionsAxiosTemplate, serverGet } from "../bridge/requestServer";
 import { logMessage, logErrorAsyncMessage } from "../common/funtions";
 
-const fetchComic = async (id: string) => {
+const fetchComic = async (id: string, sourceToken: any) => {
     try {
-        const result = await serverGet(PATHS_SERVER.DETAILS_COMIC(id));
+        const options = { ...optionsAxiosTemplate };
+        options.cancelToken = sourceToken
+        const result = await serverGet(PATHS_SERVER.DETAILS_COMIC(id), options);
         if (result.state) {
             return result.data
         } else { throw new Error() }
@@ -14,9 +16,11 @@ const fetchComic = async (id: string) => {
         return false;
     }
 };
-const fetchAllComics = async () => {
+const fetchAllComics = async (sourceToken: any) => {
     try {
-        const result = await serverGet(PATHS_SERVER.ALL_COMICS);
+        const options = { ...optionsAxiosTemplate };
+        options.cancelToken = sourceToken;
+        const result = await serverGet(PATHS_SERVER.ALL_COMICS, options);
         if (result.state) {
             return result.data
         } else { throw new Error() }

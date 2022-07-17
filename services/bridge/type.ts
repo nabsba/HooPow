@@ -4,5 +4,10 @@ type TResult = {
 	status: number;
 	error: boolean;
 };
+type TOptionsAxios = {
+	time: number,
+	cancelToken: any,
+	params: any,
+}
 
-export type { TResult };
+export type { TResult, TOptionsAxios };

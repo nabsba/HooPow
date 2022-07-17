@@ -39,7 +39,6 @@ export const ComicsChildContext = React.createContext<ComicsContext>({
 });
 
 const ComicsParentContext = () => {
-
     const [errorServer, setErrorServer] = useState(false)
     const [pending, setPending] = useState(false);
     const [comicsInformations, setComicsInformations] = useState<TComicsInformations>({
@@ -52,12 +51,12 @@ const ComicsParentContext = () => {
         page: 1,
     });
     useEffect(() => {
-        const cancelToken = axios.CancelToken;
-        const source = cancelToken.source();
+        let CancelToken = axios.CancelToken;
+        let source = CancelToken.source();
         (async () => {
             try {
                 setPending(true)
-                const comics = await fetchAllComics();
+                const comics = await fetchAllComics(source.token);
                 if (comics) {
                     handleComicsInformations({
                         ...comicsInformations,
@@ -67,7 +66,8 @@ const ComicsParentContext = () => {
                         comicsDisplayed: comics.slice(0, comicsInformations.page * 20),
                         page: 1,
                     });
-                    setPending(false)
+                    setPending(false);
+                    setErrorServer(false)
                     return;
                 } else { throw new Error('fetchAllComics') }
             } catch (error) {
@@ -76,9 +76,11 @@ const ComicsParentContext = () => {
                 logMessage(`${logErrorAsyncMessage('contexts/Comics', 'fetchComic')},
                 ${error}`);
             }
-        })()
+        })();
         return () => {
-            source.cancel('axios request cancelled');
+            if (source) {
+                source.cancel('axios request cancelled');
+            }
         };
     }, []);
 

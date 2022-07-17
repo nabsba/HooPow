@@ -37,7 +37,6 @@ Then add a loader
     const { viewPort, comicContext } = GetAllContexts()
     const { ComponentsComicCards, ComponentsComicCardsWithLogicDataFetching } = GetAllComponentsNedded();
     const { scrollRef } = RetrieveComicsOnScrolling(comicContext.comicsInformations, comicContext.getNewListComics);
-
     const DisplayFirstFetchComics = <div data-testid="testID-gallery"><CSSGaleryRows viewPortWidth={viewPort.width}>
         {/* <Profiler id="Mesure data loading" onRender={metricsPerformence}> */}
         <ComponentsComicCardsWithLogicDataFetching

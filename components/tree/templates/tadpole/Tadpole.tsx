@@ -9,9 +9,9 @@ import CompositionFrames from '../../../utils/CompositionFrames';
 import { GetAllContexts } from './util';
 
 const Tadpole: React.FC<any> = ({ comic }) => {
-    if (!comic) return null;
     const { annonce, mainAnnonce, userMenu } = dataCommon.fr;
     const { viewPort, fullScreenContext, sliderContext } = GetAllContexts();
+
     return (<>
         <FullScreenChildContext.Provider value={fullScreenContext}>
             <SlideChildContext.Provider value={sliderContext}>

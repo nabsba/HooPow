@@ -11,9 +11,6 @@ import { fetchComic } from '../../services/comics/functions';
 import { logErrorAsyncMessage, logMessage } from '../../services/common/funtions';
 
 
-
-
-
 const base: any = css`
 height:100vh;
 background-color: black`
@@ -21,20 +18,20 @@ const Comic: NextPage = () => {
     const router = useRouter();
     const { cid } = router.query;
     const [comic, setComic] = useState();
-    const [pendingA, setPending] = useState(false);
+    const [pending, setPending] = useState(false);
     const [error, setError] = useState(false);
     const ComicHTML = ComponentWithLogicDataFetching(Tadpole);
     useEffect(() => {
-        const cancelToken = axios.CancelToken;
-        const source = cancelToken.source();
+        const source = axios.CancelToken.source();
         const getComicDetail = async () => {
-
+            setPending(true)
             try {
                 if (typeof cid === 'string') {
-                    setPending(true)
-                    const comic = await fetchComic(cid);
+
+                    const comic = await fetchComic(cid, source.token);
                     if (comic) {
                         setComic(comic)
+                        setError(false)
                     } else {
                         throw new Error("fetchComic");
                     }
@@ -61,11 +58,11 @@ const Comic: NextPage = () => {
                 <meta name="description" content="Test" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main data-testid="home-page-test" className="flex" css={base}>
+            <main className="flex" css={base}>
                 <MainFrame>
                     <ComicHTML
-                        isErrorServer={error}
-                        isLoading={pendingA}
+                        isErrorServer={error || !comic}
+                        isLoading={pending}
                         comic={comic}
                     />
                 </MainFrame >

@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { logMessage, logErrorAsyncMessage } from '../common/funtions';
 import { HTTP_STATUS_CODE } from './constant';
-import { TResult } from './type';
+import { TOptionsAxios, TResult } from './type';
 
 const resultTemplate: TResult = {
 	state: false,
@@ -11,21 +11,19 @@ const resultTemplate: TResult = {
 	error: false,
 };
 
+const optionsAxiosTemplate: TOptionsAxios = {
+	time: 15000,
+	cancelToken: '',
+	params: null,
+}
 const serverGet = async (
 	url: string,
-	time?: number | null,
-	source?: any,
-	params?: any,
+	optionsAxios: TOptionsAxios
 ): Promise<TResult> => {
 	const result: TResult = { ...resultTemplate };
 	let query: any = {};
-
 	try {
-		query = await axios.get(url, {
-			timeout: time ? time : 15000,
-			cancelToken: source ? source.token : null,
-			params,
-		});
+		query = await axios.get(url, optionsAxios);
 		result.state = Boolean(query.data);
 		result.data = query.data;
 	} catch (error) {
@@ -38,4 +36,4 @@ const serverGet = async (
 	}
 };
 
-export { serverGet, resultTemplate };
+export { serverGet, resultTemplate, optionsAxiosTemplate };

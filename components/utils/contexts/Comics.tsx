@@ -51,8 +51,8 @@ const ComicsParentContext = () => {
         page: 1,
     });
     useEffect(() => {
-        let CancelToken = axios.CancelToken;
-        let source = CancelToken.source();
+        const CancelToken = axios.CancelToken;
+        const source = CancelToken.source();
         (async () => {
             try {
                 setPending(true)

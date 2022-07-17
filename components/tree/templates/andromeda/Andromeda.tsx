@@ -1,8 +1,9 @@
-import React, { Profiler } from 'react';
+import React from 'react';
 import { css } from '@emotion/react'
 import { CSSGaleryRows } from '../../organisms/Gallery';
 import dataCommon from '../../../../services/data/common';
-import { metricsPerformence, SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../../../services';
+import { SIZE_ELEMENTS_ACTUAL_VIEW_PORT } from '../../../../services';
+//metricsPerformence,
 import getIcon from '../../atoms/icons/Icons';
 import { LeftV211 } from '../../organisms';
 import { GetAllComponentsNedded, GetAllContexts, RetrieveComicsOnScrolling } from './utils';

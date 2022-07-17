@@ -16,7 +16,7 @@ export type TComic = {
         bdImageKey: number
         id: string;
         name: string;
-    };
+    }[];
 }
 export type TLanguages = 'fr';
 
